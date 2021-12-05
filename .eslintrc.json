@@ -1,0 +1,40 @@
+{
+  "plugins": [
+    // https://www.npmjs.com/package/eslint-plugin-deprecation
+    "deprecation"
+  ],
+  "extends": [
+    "react-app",
+    // "airbnb",
+    // "airbnb/hooks",
+    "react-app/jest"
+  ],
+  "rules": {
+    "no-unused-vars": 0,
+    "@typescript-eslint/no-unused-vars": 0,
+    "eqeqeq": "warn",
+    "camelcase": "warn",
+    "deprecation/deprecation": "warn",
+    "no-restricted-imports": [
+      "warn",
+      {
+        "patterns": ["@mui/*/*/*", "!@mui/material/test-utils/*"]
+      }
+    ]
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parserOptions": {
+        // this setting is required to use rules that require type information
+        "project": "./tsconfig.json"
+      },
+      "rules": {
+        "@typescript-eslint/prefer-nullish-coalescing": "error"
+      }
+    }
+  ]
+}
