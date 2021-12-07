@@ -19,7 +19,9 @@ export const ReadMore: FunctionComponent<IReadMoreProps> = ({ pre, children, mor
       {!values.more && pre && <Box sx={visuallyHidden}>{children}</Box>}
       {!values.more && pre ? pre : children}
       {pre && (
-        <Button onClick={event => setState({ ...values, more: !values.more })}>Read more</Button>
+        <Button onClick={event => setState({ ...values, more: !values.more })}>
+          {!values.more ? 'Read more' : 'Read less'}
+        </Button>
       )}
     </>
   )

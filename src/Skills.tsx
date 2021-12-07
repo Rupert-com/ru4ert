@@ -63,6 +63,7 @@ const CardMediaCus = styled(CardMedia)(({ theme }) => ({
   maxHeight: '200px',
   '&.MuiCardMedia-media': {
     objectFit: 'contain',
+    width: 'auto',
   },
 }))
 
@@ -129,7 +130,7 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
   return (
     <Container id="Skills" sx={{ mb: 1 }}>
       <Paper elevation={12} sx={{ p: 3 }}>
-        <Typography variant="h2" gutterBottom component="h1">
+        <Typography variant="h2" gutterBottom>
           Skills and Techniques
         </Typography>
         <MasonryCus columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>

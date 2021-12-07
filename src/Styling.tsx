@@ -9,37 +9,38 @@ declare module '@mui/material/Button' {
 }
 
 export const Styling: FunctionComponent = props => {
-  const theme = useMemo(
-    () =>
-      createTheme({
-        components: {
-          MuiLink: {
-            defaultProps: { rel: 'noopener' },
+  let theme = createTheme({})
+  theme = createTheme({
+    components: {
+      MuiLink: {
+        defaultProps: { rel: 'noopener' },
+      },
+      MuiButton: {
+        variants: [
+          {
+            props: { variant: 'active' },
+            style: {
+              color: 'green',
+            },
           },
-          MuiButton: {
-            variants: [
-              {
-                props: { variant: 'active' },
-                style: {
-                  color: 'green',
-                },
-              },
-            ],
+        ],
+      },
+      MuiContainer: {
+        styleOverrides: {
+          //
+          root: {
+            [theme.breakpoints.down('sm')]: {
+              padding: 0,
+            },
           },
-          MuiTypography: {
-            variants: [
-              {
-                props: { variant: 'h1' },
-                style: {
-                  overflow: 'auto',
-                },
-              },
-            ],
-          },
+          // },
         },
-      }),
-    []
-  )
+      },
+      MuiTypography: {
+        defaultProps: { overflow: 'auto' },
+      },
+    },
+  })
 
   const inputGlobalStyles = (
     <GlobalStyles

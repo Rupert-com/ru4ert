@@ -6,6 +6,7 @@ import { ReactComponent as Thingiverse } from './@static/media/Thingiverse.svg'
 import { ReactComponent as LinkedIn } from './@static/media/linkedIn.svg'
 import { ReactComponent as WhatsApp } from './@static/media/whatsapp.svg'
 import { ReactComponent as Email } from './@static/media/email.svg'
+import { ReactComponent as StackOverflow } from './@static/media/stackOverflow.svg'
 import { green } from '@mui/material/colors'
 
 export const FILE = __filename
@@ -19,16 +20,12 @@ export const Links: FunctionComponent<ILinksProps> = props => {
   return (
     <Container sx={{ mb: 1 }} id="Links">
       <Card elevation={12} variant="elevation">
-        <Grid
-          sx={{ m: 1 }}
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          // spacing={2}
-        >
+        <Typography variant="h2" gutterBottom>
+          Links
+        </Typography>
+        <Grid sx={{ m: 1 }} container direction="row" justifyContent="center" alignItems="center">
           {items.map(({ href, icon, title }) => (
-            <Grid item xs={12} md={1} sm={3}>
+            <Grid item xs={4} md={1}>
               <Link href={href} target="_blank" underline="none">
                 <Avatar sx={{ bgcolor: 'inherit', m: 'auto' }} variant="rounded">
                   {icon}
@@ -65,5 +62,10 @@ const items = [
     href: 'mailto:rupertbogensperger21@gmail.com',
     icon: <Email />,
     title: 'Email',
+  },
+  {
+    href: 'https://stackoverflow.com/users/11123801/ru4ert',
+    icon: <StackOverflow />,
+    title: 'Stack-Overflow',
   },
 ]
