@@ -16,7 +16,7 @@ import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import React, { FunctionComponent, useState } from 'react'
-import { Links } from './@static/Links'
+import { Links } from './Links'
 import { Skills } from './Skills'
 
 export const FILE = __filename
@@ -41,7 +41,7 @@ const HideOnScroll: FunctionComponent<{
 type IAppProps = {}
 type IAppState = {}
 
-const pages = ['Skills', 'Resources']
+const pages = ['Skills', 'Links']
 
 export const App: FunctionComponent<IAppProps> = props => {
   const [values, setState] = useState<IAppState>({})

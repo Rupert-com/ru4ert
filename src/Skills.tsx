@@ -58,7 +58,10 @@ const Label = styled(Paper)(({ theme }) => ({
 
 const CardMediaCus = styled(CardMedia)(({ theme }) => ({
   margin: 'auto',
-  padding: 2,
+  padding: 4,
+  // media: {
+  maxHeight: '200px',
+  // },
 }))
 
 type ISkillsProps = {}
@@ -69,30 +72,30 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
 
   const max1 = useMediaQuery('(max-width:600px)')
   const max2 = useMediaQuery('(max-width:960px)')
-
+  const colls = max2 ? (max1 ? 1 : 2) : 3
   return (
-    <Container id="Skills">
+    <Container id="Skills" sx={{ mb: 1 }}>
       <Paper elevation={12} sx={{ p: 3 }}>
-        <Typography variant="h1" gutterBottom>
+        <Typography variant="h2" gutterBottom component="h1">
           Skills and Techniques
         </Typography>
-        <Masonry columns={max2 ? (max1 ? 1 : 2) : 3} spacing={3}>
+        <Masonry columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>
           {itemData.map(({ img, title, content, action }, index) => (
-            <Stack key={index}>
+            <Paper key={index}>
               <Card>
                 <CardActionArea>
                   <CardMediaCus
                     title={title}
                     // @ts-ignore
                     component={img}
-                    sx={{ maxHeight: 200 }}
+                    // sx={{ maxHeight: 200 }}
                   ></CardMediaCus>
                   <CardHeader title={title}></CardHeader>
                   <CardContent>{content}</CardContent>
                 </CardActionArea>
                 {action && <CardActions>{action}</CardActions>}
               </Card>
-            </Stack>
+            </Paper>
           ))}
         </Masonry>
       </Paper>
