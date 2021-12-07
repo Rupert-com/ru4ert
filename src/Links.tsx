@@ -19,11 +19,11 @@ export const Links: FunctionComponent<ILinksProps> = props => {
 
   return (
     <Container sx={{ mb: 1 }} id="Links">
-      <Card elevation={12} variant="elevation">
+      <Card elevation={12} variant="elevation" sx={{ p: 3 }}>
         <Typography variant="h2" gutterBottom>
           Links
         </Typography>
-        <Grid sx={{ m: 1 }} container direction="row" justifyContent="center" alignItems="center">
+        <Grid sx={{ m: 1 }} container>
           {items.map(({ href, icon, title }) => (
             <Grid item xs={4} md={1}>
               <Link href={href} target="_blank" underline="none">

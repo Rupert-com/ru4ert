@@ -16,6 +16,7 @@ import IconButton from '@mui/material/IconButton'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import React, { FunctionComponent, useState } from 'react'
+import { About } from './About'
 import { Links } from './Links'
 import { Skills } from './Skills'
 
@@ -41,7 +42,7 @@ const HideOnScroll: FunctionComponent<{
 type IAppProps = {}
 type IAppState = {}
 
-const pages = ['Skills', 'Links']
+const pages = ['About', 'Skills', 'Links']
 
 export const App: FunctionComponent<IAppProps> = props => {
   const [values, setState] = useState<IAppState>({})
@@ -143,6 +144,7 @@ export const App: FunctionComponent<IAppProps> = props => {
         </AppBar>
       </HideOnScroll>
       <Toolbar />
+      <About />
       <Skills />
       <Links />
     </Box>

@@ -25,6 +25,15 @@ export const Styling: FunctionComponent = props => {
           },
         ],
       },
+      MuiGrid: {
+        styleOverrides: {
+          container: {
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+          },
+        },
+      },
       MuiContainer: {
         styleOverrides: {
           //
