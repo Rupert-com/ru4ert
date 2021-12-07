@@ -13,6 +13,9 @@ export const Styling: FunctionComponent = props => {
     () =>
       createTheme({
         components: {
+          MuiLink: {
+            defaultProps: { rel: 'noopener' },
+          },
           MuiButton: {
             variants: [
               {
