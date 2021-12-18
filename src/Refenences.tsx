@@ -4,16 +4,34 @@ import {
   CardActions,
   CardContent,
   CardHeader,
+  CardMedia,
   Container,
   Divider,
   Link,
   Typography,
 } from '@mui/material'
-import React, { FunctionComponent, ReactNode, useState } from 'react'
+import { styled } from '@mui/system'
+import React, { FunctionComponent, ReactComponentElement, ReactNode, useState } from 'react'
+import feratel, { ReactComponent as Feratel } from './@static/media/logo-feratel.svg'
+import teamABC from './@static/media/TeamABC.jpg'
+import ubispaze from './@static/media/logo-ubispaze.png'
+
 export const FILE = __filename
 type IFormik = {}
 type IRefenencesProps = {}
 type IRefenencesState = {}
+
+const CardMediaCus = styled(CardMedia)(({ theme }) => ({
+  margin: 'auto',
+  padding: 4,
+  maxHeight: '100px',
+  maxWidth: '100px',
+  float: 'right',
+  '&.MuiCardMedia-media': {
+    objectFit: 'contain',
+    width: 'auto',
+  },
+}))
 
 export const Refenences: FunctionComponent<IRefenencesProps> = props => {
   const [values, setState] = useState<IRefenencesState>({})
@@ -24,8 +42,8 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
         <Typography variant="h2" gutterBottom>
           Refenences
         </Typography>
-        {items.map(({ action, description, name, organisation, status, time, tasks }) => (
-          <Card sx={{ mb: 2 }}>
+        {items.map(({ action, description, name, organisation, status, time, tasks, img }) => (
+          <Card sx={{ mb: 2 }} id={'ref_' + name}>
             <CardHeader title={name} />
             <CardContent>
               <Typography noWrap variant="subtitle1">
@@ -34,9 +52,21 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
               <Typography variant="caption" noWrap>
                 {time}
               </Typography>
-
               <Divider />
-              <Typography gutterBottom>{description}</Typography>
+              <Typography
+                gutterBottom
+                sx={{
+                  my: 2,
+                  '::after': {
+                    content: '""',
+                    clear: 'both',
+                    display: 'table',
+                  },
+                }}
+              >
+                {img}
+                {description}
+              </Typography>
               <Typography variant="body2">Tasks: {tasks}</Typography>
             </CardContent>
             {action && <CardActions>{action}</CardActions>}
@@ -55,6 +85,7 @@ const items: {
   status: ReactNode
   time: ReactNode
   tasks: ReactNode
+  img?: ReactNode
 }[] = [
   {
     name: 'TeamABC',
@@ -67,6 +98,8 @@ const items: {
     ),
     status: 'launched',
     tasks: 'database, web application, backend, server administration',
+    // @ts-ignore
+    img: <CardMediaCus component="img" src={teamABC} />,
   },
   {
     name: 'ubispaze',
@@ -77,6 +110,8 @@ const items: {
     organisation: 'ubispaze GmbH',
     status: 'pre-launch',
     tasks: 'database, web application, backend, business planning, server administration',
+    // @ts-ignore
+    img: <CardMediaCus component="img" src={ubispaze} />,
   },
   {
     name: 'ferjause',
@@ -89,10 +124,12 @@ const items: {
     ),
     status: 'intern project',
     tasks: 'database, web application, backend',
+    //@ts-ignore
+    img: <CardMediaCus component="img" src={feratel} />,
   },
   {
     name: 'ferauto',
-    description: 'ferauto is an intern project which manages company vehicles',
+    description: 'ferauto is an intern project which manages company vehicles.',
     time: 'Summer 2019',
     organisation: (
       <Link href="https://www.feratel.at/" target="_blank">
@@ -101,5 +138,7 @@ const items: {
     ),
     status: 'intern project',
     tasks: 'database, web application, backend',
+    //@ts-ignore
+    img: <CardMediaCus component="img" src={feratel} />,
   },
 ]

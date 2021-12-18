@@ -12,8 +12,9 @@ import {
   Stack,
   Typography,
   useMediaQuery,
+  Box,
 } from '@mui/material'
-import { styled } from '@mui/system'
+import { styled, keyframes } from '@mui/system'
 import React, { FunctionComponent, ReactNode, useState } from 'react'
 import apache, { ReactComponent as Apache } from './@static/media/apache.svg'
 import cSS, { ReactComponent as CSS } from './@static/media/CSS.svg'
@@ -60,7 +61,7 @@ const Label = styled(Paper)(({ theme }) => ({
 const CardMediaCus = styled(CardMedia)(({ theme }) => ({
   margin: 'auto',
   padding: 4,
-  maxHeight: '200px',
+  maxHeight: '80px',
   '&.MuiCardMedia-media': {
     objectFit: 'contain',
     width: 'auto',
@@ -68,9 +69,7 @@ const CardMediaCus = styled(CardMedia)(({ theme }) => ({
 }))
 
 const MasonryCus = styled(Masonry)(({ theme }) => ({
-  '&.MuiMasonry-root': {
-    // height: 'auto',
-  },
+  '&.MuiMasonry-root': {},
 }))
 
 type IData = {
@@ -120,7 +119,7 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
 
   const max1 = useMediaQuery('(max-width:600px)')
   const max2 = useMediaQuery('(max-width:960px)')
-  const colls = max2 ? (max1 ? 1 : 2) : 3
+  const colls = max2 ? (max1 ? 1 : 2) : 4
 
   const splitAtIndex = (value: string, index: number) => [
     value.substring(0, index),
@@ -142,7 +141,6 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
     </Container>
   )
 }
-
 const itemData: IData[] = [
   {
     src: docker,
@@ -150,27 +148,15 @@ const itemData: IData[] = [
     title: 'Docker',
     content: [
       <Typography>
-        Docker is a virtual machine, but unlike virtual machines that create a completely separate
-        operating system, Docker allows the applications to use the Linux kernel of the same machine
-        on which it is installed and by taking this benefit, it can make the applications ready to
-        ship to other machines that are running the same Linux OS with somewhat different
-        configurations. In this way, application size is reduced significantly and at the time of
-        shipping, application performance also gets improved. It is an open-source tool and anyone
-        can use it to meet his or her needs even if they need any additional feature or in case if
-        they need to add a feature that does not exist already in the application.
-      </Typography>,
-      <Typography>
-        Docker is a virtual machine, but unlike virtual machines that create a completely separate
-        operating system, Docker allows the applications to use the Linux kernel of the same machine
-        on which it is installed and by taking this benefit, it can make the applications ready to
-        ship to other machines that are running the same Linux OS with somewhat different
-        configurations.
+        Docker is a virtual machine, allowing to develop and run applications in the same
+        envirement. Futher, it runs applications on the same Linux kernel. Thereforece, it has a
+        performance benefit.
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.janbasktraining.com/blog/what-is-docker/" target="_blank">
-          Source
+        <Link title="see more" href="https://www.docker.com/" target="_blank">
+          Docker
         </Link>
       </Typography>
     ),
@@ -179,17 +165,11 @@ const itemData: IData[] = [
     img: NodeJs,
     src: nodeJs,
     title: 'NodeJs',
-    content: [
-      <Typography>
-        Node.js is an open-source server side runtime environment built on Chrome's V8 JavaScript
-        engine. It provides an event driven, non-blocking (asynchronous) I/O and cross-platform
-        runtime environment for building highly scalable server-side application using JavaScript.
-      </Typography>,
-    ],
+    content: [<Typography>Node.js is a server side runtime enviroment for JavaScript.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.tutorialsteacher.com/nodejs/what-is-nodejs" target="_blank">
-          Source
+        <Link title="see more" href="https://nodejs.org/en/" target="_blank">
+          NodeJs
         </Link>
       </Typography>
     ),
@@ -198,18 +178,11 @@ const itemData: IData[] = [
     img: Apache,
     src: apache,
     title: 'Apache',
-    content: [
-      <Typography>
-        The Apache HTTP Server Project is an effort to develop and maintain an open-source HTTP
-        server for modern operating systems including UNIX and Windows. The goal of this project is
-        to provide a secure, efficient and extensible server that provides HTTP services in sync
-        with the current HTTP standards.
-      </Typography>,
-    ],
+    content: [<Typography>Apache HTTP Server is a HTTP Server</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://httpd.apache.org/" target="_blank">
-          Source
+        <Link title="see more" href="https://httpd.apache.org/" target="_blank">
+          Apache
         </Link>
       </Typography>
     ),
@@ -219,16 +192,42 @@ const itemData: IData[] = [
     src: cSS,
     title: 'CSS',
     content: [
-      <Typography>
-        CSS is the language for describing the presentation of Web pages, including colors, layout,
-        and fonts. It allows one to adapt the presentation to different types of devices, such as
-        large screens, small screens, or printers.
-      </Typography>,
+      <Box
+        sx={{
+          background: `linear-gradient(
+          90deg,
+          rgba(255, 0, 0, 1) 0%,
+          rgba(255, 154, 0, 1) 10%,
+          rgba(208, 222, 33, 1) 20%,
+          rgba(79, 220, 74, 1) 30%,
+          rgba(63, 218, 216, 1) 40%,
+          rgba(47, 201, 226, 1) 50%,
+          rgba(28, 127, 238, 1) 60%,
+          rgba(95, 21, 242, 1) 70%,
+          rgba(186, 12, 248, 1) 80%,
+          rgba(251, 7, 217, 1) 90%,
+          rgba(255, 0, 0, 1) 100%
+      )`,
+          backgroundSize: '200% auto',
+          backgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          animation: `${keyframes`
+          to {
+            background-position: 200% center;
+          }`} 1s linear infinite`,
+        }}
+      >
+        <Typography>CSS styles your HTML Documents</Typography>
+      </Box>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.w3.org/standards/webdesign/htmlcss" target="_blank">
-          Source
+        <Link
+          title="see more"
+          href="https://www.w3.org/standards/webdesign/htmlcss"
+          target="_blank"
+        >
+          CSS
         </Link>
       </Typography>
     ),
@@ -238,23 +237,15 @@ const itemData: IData[] = [
     src: debian,
     title: 'Debian',
     content: [
-      <Typography>
-        Debian Linux is a brand-new kind of Linux distribution. Rather than being developed by one
-        isolated individual or group, as other distributions of Linux have been developed in the
-        past, Debian is being developed openly in the spirit of Linux and GNU. The primary purpose
-        of the Debian project is to finally create a distribution that lives up to the Linux name.
-        Debian is being carefully and conscientiously put together and will be maintained and
-        supported with similar care.
-      </Typography>,
-      <Typography>
-        Debian Linux is a brand-new kind of Linux distribution. Rather than being developed by one
-        isolated individual or group, as other distributions of Linux have been developed in the
-        past, Debian is being developed openly in the spirit of Linux and GNU.
-      </Typography>,
+      <Typography>Debian is a common Linux Distribution with serveral use cases.</Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.debian.org/doc/manuals/project-history/" target="_blank">
+        <Link
+          title="see more"
+          href="https://www.debian.org/doc/manuals/project-history/"
+          target="_blank"
+        >
           History & Source
         </Link>
       </Typography>
@@ -265,15 +256,12 @@ const itemData: IData[] = [
     src: eslint,
     title: 'Eslint',
     content: [
-      <Typography>
-        ESLint statically analyzes your code to quickly find problems. ESLint is built into most
-        text editors and you can run ESLint as part of your continuous integration pipeline.
-      </Typography>,
+      <Typography>ESLint statically analyzes your code to quickly find problems.</Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://eslint.org/" target="_blank">
-          Source
+        <Link title="see more" href="https://eslint.org/" target="_blank">
+          Eslint
         </Link>
       </Typography>
     ),
@@ -284,14 +272,14 @@ const itemData: IData[] = [
     title: 'Flutter',
     content: [
       <Typography>
-        Flutter is an open source framework by Google for building beautiful, natively compiled,
-        multi-platform applications from a single codebase.
+        Flutter builds beautiful, natively compiled, multi-platform applications from a single
+        codebase.
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://flutter.dev/" target="_blank">
-          Source
+        <Link title="see more" href="https://flutter.dev/" target="_blank">
+          Flutter
         </Link>
       </Typography>
     ),
@@ -300,16 +288,11 @@ const itemData: IData[] = [
     img: Git,
     src: git,
     title: 'Git',
-    content: [
-      <Typography>
-        Git is a free and open source distributed version control system designed to handle
-        everything from small to very large projects with speed and efficiency.
-      </Typography>,
-    ],
+    content: [<Typography>Git is a version control system.</Typography>],
     action: (
-      <Typography variant="caption">
+      <Typography title="see more" variant="caption">
         <Link href="https://git-scm.com/" target="_blank">
-          Source
+          Git
         </Link>
       </Typography>
     ),
@@ -324,18 +307,11 @@ const itemData: IData[] = [
     img: Graphql,
     src: graphql,
     title: 'Graphql',
-    content: [
-      <Typography>
-        GraphQL is a query language for APIs and a runtime for fulfilling those queries with your
-        existing data. GraphQL provides a complete and understandable description of the data in
-        your API, gives clients the power to ask for exactly what they need and nothing more, makes
-        it easier to evolve APIs over time, and enables powerful developer tools.
-      </Typography>,
-    ],
+    content: [<Typography>GraphQL is a query language to request server APIs</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://graphql.org/" target="_blank">
-          Source
+        <Link title="see more" href="https://graphql.org/" target="_blank">
+          Graphql
         </Link>
       </Typography>
     ),
@@ -347,15 +323,19 @@ const itemData: IData[] = [
     content: [
       <Typography>
         HTML (stands for Hypertext Markup Language) is a computer language that makes up most web
-        pages and online applications. A hypertext is a text that is used to reference other pieces
-        of text, while a markup language is a series of markings that tells web servers the style
-        and structure of a document.
+        pages and online applications.
+        <br />
+        <strong>Current HTML Version: 5.2</strong>
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.hostinger.com/tutorials/what-is-html" target="_blank">
-          Source
+        <Link
+          title="see more"
+          href="https://web.cs.wpi.edu/~kal/fs/htmlstuff/FShtml1.html"
+          target="_blank"
+        >
+          HTML 1.0
         </Link>
       </Typography>
     ),
@@ -387,6 +367,7 @@ const itemData: IData[] = [
         <Link
           href="https://www.codecademy.com/resources/blog/javascript-history-popularity/"
           target="_blank"
+          title="see more"
         >
           JavaScript: How Did It Get So Popular?
         </Link>
@@ -406,8 +387,8 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.json.org/json-en.html" target="_blank">
-          Source
+        <Link href="https://www.json.org/json-en.html" target="_blank" title="see more">
+          JSON
         </Link>
       </Typography>
     ),
@@ -417,18 +398,37 @@ const itemData: IData[] = [
     src: kotlin,
     title: 'Kotlin',
     content: [
-      <Typography>
-        Kotlin is an open-source statically typed programming language designed by JetBrains. It is
-        object-oriented and supports functional programming features. ... That is because Google
-        decided that Kotlin was its preferred language for building Android apps.
+      <>
+        <Typography gutterBottom>
+          Kotlin runs like Java on the JRE. The big flex is that you can use Java Classes. Further,
+          your developing speed increases highly and your file size shrinks.
+        </Typography>
+        <Typography gutterBottom>Example:</Typography>
+        <Typography gutterBottom>
+          Java:
+          <br />
+          <i>{`if(mitglied != null && mitglied.getLastname() != null){
+length = mitglied.getLastname().length()
+}`}</i>
+        </Typography>
+        <Typography gutterBottom>
+          Kotlin:
+          <br />
+          <i>{`val length?: Int = mitglied?.lastname?.length`}</i>
+          <br />
+          or with a fallback value
+          <i>{`val length: Int = mitglied?.lastname?.length ?: 0`}</i>
+          Kotlin is NullExeption safe in contrast to Java
+        </Typography>
+      </>,
+      <Typography gutterBottom>
+        Kotlin runs like Java on the JRE. The big flex is that you can use Java Classes. Further,
+        your developing speed increases highly and your file size shrinks.
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link
-          href="https://www.soldevelo.com/blog/why-you-should-use-kotlin-instead-of-java-in-your-next-project/"
-          target="_blank"
-        >
+        <Link href="https://kotlinlang.org/" target="_blank" title="see more">
           Source
         </Link>
       </Typography>
@@ -438,11 +438,17 @@ const itemData: IData[] = [
     img: Linux,
     src: linux,
     title: 'Linux',
-    content: [<Typography>TODO </Typography>],
+    content: [
+      <Typography>Linux is an open source and high performance operation system. </Typography>,
+    ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.janbasktraining.com/blog/what-is-docker/" target="_blank">
-          Source
+        <Link
+          href="https://upload.wikimedia.org/wikipedia/commons/b/b5/Linux_Distribution_Timeline_21_10_2021.svg"
+          target="_blank"
+          title="see more"
+        >
+          See how many Linux Distribution exists on a Timeline
         </Link>
       </Typography>
     ),
@@ -453,19 +459,14 @@ const itemData: IData[] = [
     title: 'MongoDB',
     content: [
       <Typography>
-        MongoDB is an open-source document-oriented database that is designed to store a large scale
-        of data and also allows you to work with that data very efficiently. It is categorized under
-        the NoSQL (Not only SQL) database because the storage and retrieval of data in the MongoDB
-        are not in the form of tables.
+        MongoDB is a document-oriented database that is designed to store a large scale of data.
+        MongoDB is a NoSQL database.
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link
-          href="https://www.geeksforgeeks.org/what-is-mongodb-working-and-features/"
-          target="_blank"
-        >
-          Source
+        <Link href="https://www.mongodb.com/" title="see more" target="_blank">
+          MongoDB
         </Link>
       </Typography>
     ),
@@ -474,16 +475,11 @@ const itemData: IData[] = [
     img: MySql,
     src: mySql,
     title: 'MySql',
-    content: [
-      <Typography>
-        MySQL Database Service is a fully managed database service to deploy cloud-native
-        applications.
-      </Typography>,
-    ],
+    content: [<Typography>MySQL is a Database Service relational database.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.mysql.com/" target="_blank">
-          Source
+        <Link title="see more" href="https://www.mysql.com/" target="_blank">
+          MySQL
         </Link>
       </Typography>
     ),
@@ -493,15 +489,12 @@ const itemData: IData[] = [
     src: php,
     title: 'PHP',
     content: [
-      <Typography>
-        The PHP development team announces the immediate availability of PHP 8.1.0. This release
-        marks the latest minor release of the PHP language.
-      </Typography>,
+      <Typography>PHP is the old-fashion whay of dynamic HTML Document generation.</Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.php.net/" target="_blank">
-          Source
+        <Link title="see more" href="https://www.php.net/" target="_blank">
+          PHP
         </Link>
       </Typography>
     ),
@@ -522,8 +515,8 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://prettier.io/" target="_blank">
-          Source
+        <Link title="see more" href="https://prettier.io/" target="_blank">
+          Prettier
         </Link>
       </Typography>
     ),
@@ -532,18 +525,11 @@ const itemData: IData[] = [
     img: Python,
     src: python,
     title: 'Python',
-    content: [
-      <Typography>
-        Python is an interpreted high-level general-purpose programming language. Its design
-        philosophy emphasizes code readability with its use of significant indentation. Its language
-        constructs as well as its object-oriented approach aim to help programmers write clear,
-        logical code for small and large-scale projects.
-      </Typography>,
-    ],
+    content: [<Typography>Python is a widespread programming language.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">
-          Source
+        <Link title="see more" href="https://www.python.org/" target="_blank">
+          Python
         </Link>
       </Typography>
     ),
@@ -556,11 +542,7 @@ const itemData: IData[] = [
       <>
         <Typography>
           The Raspberry Pi is a low cost, credit-card sized computer that plugs into a computer
-          monitor or TV, and uses a standard keyboard and mouse. It is a capable little device that
-          enables people of all ages to explore computing, and to learn how to program in languages
-          like Scratch and Python. It’s capable of doing everything you’d expect a desktop computer
-          to do, from browsing the internet and playing high-definition video, to making
-          spreadsheets, word-processing, and playing games.
+          monitor or TV, and uses a standard keyboard and mouse.
         </Typography>
         <iframe
           style={{ width: '100%' }}
@@ -584,13 +566,8 @@ const itemData: IData[] = [
     action: (
       <>
         <Typography variant="caption">
-          <Link href="https://www.raspberrypi.com/about/" target="_blank">
-            Further information
-          </Link>
-        </Typography>
-        <Typography variant="caption">
-          <Link href="https://www.raspberrypi.org/help/what-%20is-a-raspberry-pi/" target="_blank">
-            Source
+          <Link title="see more" href="https://www.raspberrypi.com/about/" target="_blank">
+            Raspberry Pi
           </Link>
         </Typography>
       </>
@@ -603,11 +580,8 @@ const itemData: IData[] = [
     content: [<Typography>Redis is a high-performance in-memory database.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link
-          href="https://www.ionos.at/digitalguide/hosting/hosting-technik/memcached-vs-redis/"
-          target="_blank"
-        >
-          Further information
+        <Link href="https://redis.io/" target="_blank" title="see more">
+          Redis
         </Link>
       </Typography>
     ),
@@ -624,8 +598,8 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://sass-lang.com/" target="_blank">
-          Source
+        <Link title="see more" href="https://sass-lang.com/" target="_blank">
+          Sass
         </Link>
       </Typography>
     ),
@@ -652,8 +626,8 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.typescriptlang.org/" target="_blank">
-          Source
+        <Link title="see more" href="https://www.typescriptlang.org/" target="_blank">
+          TypeScript
         </Link>
       </Typography>
     ),
@@ -665,15 +639,13 @@ const itemData: IData[] = [
     content: [
       <Typography>
         The World Wide Web Consortium (W3C) is an international community where Member
-        organizations, a full-time staff, and the public work together to develop Web standards. Led
-        by Web inventor and Director Tim Berners-Lee and CEO Jeffrey Jaffe, W3C's mission is to lead
-        the Web to its full potential.
+        organizations, a full-time staff, and the public work together to develop Web standards.
       </Typography>,
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.w3.org/Consortium/" target="_blank">
-          Source
+        <Link title="see more" href="https://www.w3.org/Consortium/" target="_blank">
+          W3C
         </Link>
       </Typography>
     ),
@@ -684,19 +656,8 @@ const itemData: IData[] = [
     title: 'Google Cloud Platform',
     content: [
       <Typography>
-        Google Cloud Platform (GCP), offered by Google, is a suite of cloud computing services that
-        runs on the same infrastructure that Google uses internally for its end-user products, such
-        as Google Search, Gmail, Google Drive, and YouTube. Alongside a set of management tools, it
-        provides a series of modular cloud services including computing, data storage, data
-        analytics and machine learning.
+        Google Cloud Platform, a service by google to build all kind of IT-Projects
       </Typography>,
     ],
-    action: (
-      <Typography variant="caption">
-        <Link href="https://en.wikipedia.org/wiki/Google_Cloud_Platform" target="_blank">
-          Source
-        </Link>
-      </Typography>
-    ),
   },
 ]

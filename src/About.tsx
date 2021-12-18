@@ -4,6 +4,7 @@ import {
   Box,
   Card,
   CardContent,
+  CardMedia,
   Chip,
   Container,
   Divider,
@@ -18,8 +19,21 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { styled, width } from '@mui/system'
 import austria, { ReactComponent as Austria } from './@static/media/austria.svg'
-import rupertAlt from './@static/media/rupert_alt.jpg'
-import rupertNeu from './@static/media/rupert_neu.jpg'
+
+const CardMediaCus = styled(CardMedia)(({ theme }) => ({
+  padding: 4,
+  maxHeight: '100px',
+  maxWidth: '100px',
+  textAlign: 'right',
+  [theme.breakpoints.down('sm')]: {
+    textAlign: 'center',
+    margin: 'auto',
+  },
+  '&.MuiCardMedia-media': {
+    objectFit: 'contain',
+    width: 'auto',
+  },
+}))
 
 const CusAvatar = styled(Avatar)(({ theme }) => ({
   height: 'auto',
@@ -39,14 +53,14 @@ const Image = styled('img')(({ theme }) => ({
 export const FILE = __filename
 type IAboutProps = {}
 type IAboutState = {
-  rupertImgsrc?: string
+  rupertImgsrc: 'rupert_neu.jpg' | 'rupert_alt.jpg'
 }
 
 export const About: FunctionComponent<IAboutProps> = props => {
   const theme = useTheme()
   const matches = useMediaQuery(theme.breakpoints.down('sm'))
   const [values, setState] = useState<IAboutState>({
-    rupertImgsrc: rupertNeu,
+    rupertImgsrc: 'rupert_neu.jpg',
   })
 
   return (
@@ -61,8 +75,8 @@ export const About: FunctionComponent<IAboutProps> = props => {
               badgeContent={<Chip label="Hover me!" color="info" />}
             >
               <CusAvatar
-                onMouseEnter={() => setState({ ...values, rupertImgsrc: rupertAlt })}
-                onMouseLeave={() => setState({ ...values, rupertImgsrc: rupertNeu })}
+                onMouseEnter={() => setState({ ...values, rupertImgsrc: 'rupert_alt.jpg' })}
+                onMouseLeave={() => setState({ ...values, rupertImgsrc: 'rupert_neu.jpg' })}
                 alt="Rupert Bogensperger"
                 src={values.rupertImgsrc}
               />
@@ -73,7 +87,7 @@ export const About: FunctionComponent<IAboutProps> = props => {
               {items.map(({ key, val }) => (
                 <>
                   <Grid item xs={12} sm={6}>
-                    <Typography align={matches ? 'center' : 'right'}>{key}</Typography>
+                    <Typography align={matches ? 'center' : 'right'}>{key}:</Typography>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <Typography align={matches ? 'center' : 'left'}>{val}</Typography>
@@ -86,12 +100,12 @@ export const About: FunctionComponent<IAboutProps> = props => {
             <Divider />
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h4" gutterBottom align="center">
+            <Typography variant="h3" gutterBottom align="center">
               statistics
             </Typography>
           </Grid>
           <Grid item xs={12} sm={5}>
-            <Box>
+            <Box sx={{ textAlign: 'center' }}>
               <Image
                 alt="Github overview Rupert Bogensperger"
                 src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/overview.svg"
@@ -117,11 +131,8 @@ const items = [
   { key: 'name', val: 'Rupert Bogensperger' },
   {
     key: 'nationality',
-    val: (
-      <Box sx={{ width: 'auto', maxWidth: '70px', textAlign: 'center' }}>
-        <Austria />
-      </Box>
-    ),
+    //@ts-ignore
+    val: <CardMediaCus component="img" src={austria} />,
   },
   { key: 'born', val: '2001' },
   { key: 'languages', val: 'german (native), english' },

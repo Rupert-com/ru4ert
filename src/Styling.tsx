@@ -1,4 +1,6 @@
-import { Box, createTheme, GlobalStyles, ThemeProvider } from '@mui/material'
+import { createTheme, responsiveFontSizes } from '@mui/material/styles'
+import { Box, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
+import { fontFamily } from '@mui/system'
 import React, { FunctionComponent, useMemo, useState } from 'react'
 import { Nav } from './Nav'
 
@@ -10,12 +12,18 @@ declare module '@mui/material/Button' {
 
 export const Styling: FunctionComponent = props => {
   let theme = createTheme({})
+
   theme = createTheme({
+    typography: {
+      fontFamily: ['"Raleway"', 'sans-serif'].join(','),
+    },
+
     components: {
       MuiLink: {
         defaultProps: { rel: 'noopener' },
       },
       MuiButton: {
+        styleOverrides: { root: { textTransform: 'none' } },
         variants: [
           {
             props: { variant: 'active' },
@@ -46,10 +54,13 @@ export const Styling: FunctionComponent = props => {
         },
       },
       MuiTypography: {
+        variants: [{ props: { variant: 'h1' }, style: { textAlign: 'center', fontWeight: '200' } }],
         defaultProps: { overflow: 'auto' },
       },
     },
   })
+
+  theme = responsiveFontSizes(theme, { factor: 2.5 })
 
   const inputGlobalStyles = (
     <GlobalStyles
@@ -63,6 +74,7 @@ export const Styling: FunctionComponent = props => {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       {inputGlobalStyles}
       <Nav />
     </ThemeProvider>

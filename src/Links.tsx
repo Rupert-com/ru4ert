@@ -49,7 +49,7 @@ const items = [
     title: 'Thingiverse',
   },
   {
-    href: 'https://www.linkedin.com/in/rupert-bogensperger-43707a192/',
+    href: 'https://at.linkedin.com/in/rupert-bogensperger-43707a192',
     icon: <LinkedIn />,
     title: 'linkedIn',
   },
