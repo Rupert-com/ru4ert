@@ -161,7 +161,7 @@ export const App: FunctionComponent<INavProps> = props => {
                     <Button href={path}>
                       <Typography
                         sx={{
-                          color: 'background.paper',
+                          color: 'text.primary',
                           textDecoration: window.location.pathname === path ? 'underline' : 'auto',
                         }}
                       >

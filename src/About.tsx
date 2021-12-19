@@ -40,6 +40,7 @@ const CusAvatar = styled(Avatar)(({ theme }) => ({
     width: '100%',
   },
   cursor: 'pointer',
+  border: `0.15em solid ${theme.palette.primary.main}`,
 }))
 
 const Image = styled('img')(({ theme }) => ({
@@ -86,11 +87,11 @@ export const About: FunctionComponent<IAboutProps> = props => {
       <Container id="About" sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3 }}>
           <section>
-            <Typography variant="h2" sx={{ my: 10, px: 2 }}>
+            <Typography align="center" variant="h2" gutterBottom>
               Rupert Bogensperger
             </Typography>
             <Grid container>
-              <Grid item xs={12} sx={{ p: 2, textAlign: 'center' }}>
+              <Grid item xs={12} sx={{ pb: 2, textAlign: 'center' }}>
                 <Badge
                   overlap="circular"
                   anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}

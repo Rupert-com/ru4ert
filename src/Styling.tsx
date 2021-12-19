@@ -17,7 +17,10 @@ export const Styling: FunctionComponent = props => {
     typography: {
       fontFamily: ['"Raleway"', 'sans-serif'].join(','),
     },
-
+    palette: {
+      primary: { main: '#4eb30f', light: '#84e64c', dark: '#008200' },
+      secondary: { main: '#78909c', light: '#a7c0cd', dark: '#4b636e' },
+    },
     components: {
       MuiLink: {
         defaultProps: { rel: 'noopener' },
