@@ -1,5 +1,7 @@
 # https://www.robotstxt.org/robotstxt.html
 Sitemap: https://ru4ert.com/sitemap.xml
+
+
 User-agent: *
 Disallow: /*.svg$
 Allow: /

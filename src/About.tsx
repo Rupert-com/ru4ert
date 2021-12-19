@@ -2,8 +2,6 @@ import {
   Avatar,
   Badge,
   Box,
-  Card,
-  CardContent,
   CardMedia,
   Chip,
   Container,
@@ -11,14 +9,14 @@ import {
   Grid,
   Link,
   Paper,
-  Stack,
   Typography,
 } from '@mui/material'
-import React, { FunctionComponent, useState } from 'react'
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
-import { styled, width } from '@mui/system'
-import austria, { ReactComponent as Austria } from './@static/media/austria.svg'
+import { styled } from '@mui/system'
+import React, { FunctionComponent, useState } from 'react'
+import Helmet from 'react-helmet'
+import austria from './@static/media/austria.svg'
 
 const CardMediaCus = styled(CardMedia)(({ theme }) => ({
   padding: 4,
@@ -50,6 +48,10 @@ const Image = styled('img')(({ theme }) => ({
   height: 'auto',
 }))
 
+const age =
+  new Date(new Date().getTime() - new Date('09/23/2001').getTime()).getFullYear() -
+  new Date(0).getFullYear()
+
 export const FILE = __filename
 type IAboutProps = {}
 type IAboutState = {
@@ -64,66 +66,88 @@ export const About: FunctionComponent<IAboutProps> = props => {
   })
 
   return (
-    <Container id="About" sx={{ mb: 1 }}>
-      <Paper elevation={12} sx={{ p: 3 }}>
-        <Typography variant="h2">About</Typography>
-        <Grid container>
-          <Grid item xs={12} sx={{ p: 2, textAlign: 'center' }}>
-            <Badge
-              overlap="circular"
-              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-              badgeContent={<Chip label="Hover me!" color="info" />}
-            >
-              <CusAvatar
-                onMouseEnter={() => setState({ ...values, rupertImgsrc: 'rupert_alt.jpg' })}
-                onMouseLeave={() => setState({ ...values, rupertImgsrc: 'rupert_neu.jpg' })}
-                alt="Rupert Bogensperger"
-                src={values.rupertImgsrc}
-              />
-            </Badge>
-          </Grid>
-          <Grid item xs={12}>
-            <Grid container spacing={1.5} sx={{ mb: 5 }}>
-              {items.map(({ key, val }) => (
-                <>
-                  <Grid item xs={12} sm={6}>
-                    <Typography align={matches ? 'center' : 'right'}>{key}:</Typography>
-                  </Grid>
-                  <Grid item xs={12} sm={6}>
-                    <Typography align={matches ? 'center' : 'left'}>{val}</Typography>
-                  </Grid>
-                </>
-              ))}
-            </Grid>
-          </Grid>
-          <Grid item xs={12}>
-            <Divider />
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="h3" gutterBottom align="center">
-              statistics
+    <>
+      <Helmet>
+        <title>About</title>
+        <meta
+          name="description"
+          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full Stack Developer. Currently he is working for Sixth Edition.`}
+        />
+        <meta property="og:title" content="Rupert Bogensperger - About" />
+        <meta property="og:image" content="https://ru4ert.com/rupert_neu.jpg" />
+        <meta
+          property="og:description"
+          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full Stack Developer. Currently he is working for Sixth Edition.`}
+        />
+      </Helmet>
+      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
+        Rupert Bogensperger - About
+      </Typography>
+      <Container id="About" sx={{ mb: 1 }}>
+        <Paper elevation={12} sx={{ p: 3 }}>
+          <section>
+            <Typography variant="h2" sx={{ my: 10, px: 2 }}>
+              Rupert Bogensperger
             </Typography>
-          </Grid>
-          <Grid item xs={12} sm={5}>
-            <Box sx={{ textAlign: 'center' }}>
-              <Image
-                alt="Github overview Rupert Bogensperger"
-                src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/overview.svg"
-              />
-            </Box>
-          </Grid>
-          {/* {matches && <Divider orientation="vertical" flexItem />} */}
-          <Grid item xs={12} sm={5}>
-            <Box sx={{ textAlign: 'center' }}>
-              <Image
-                alt="Github language statistics Rupert Bogensperger"
-                src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/languages.svg"
-              />
-            </Box>
-          </Grid>
-        </Grid>
-      </Paper>
-    </Container>
+            <Grid container>
+              <Grid item xs={12} sx={{ p: 2, textAlign: 'center' }}>
+                <Badge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  badgeContent={<Chip label="Hover me!" color="info" />}
+                >
+                  <CusAvatar
+                    onMouseEnter={() => setState({ ...values, rupertImgsrc: 'rupert_alt.jpg' })}
+                    onMouseLeave={() => setState({ ...values, rupertImgsrc: 'rupert_neu.jpg' })}
+                    alt="Rupert Bogensperger"
+                    src={values.rupertImgsrc}
+                  />
+                </Badge>
+              </Grid>
+              <Grid item xs={12}>
+                <Grid container spacing={1.5} sx={{ mb: 5 }}>
+                  {items.map(({ key, val }) => (
+                    <>
+                      <Grid item xs={12} sm={6}>
+                        <Typography align={matches ? 'center' : 'right'}>{key}:</Typography>
+                      </Grid>
+                      <Grid item xs={12} sm={6}>
+                        <Typography align={matches ? 'center' : 'left'}>{val}</Typography>
+                      </Grid>
+                    </>
+                  ))}
+                </Grid>
+              </Grid>
+              <Grid item xs={12}>
+                <Divider />
+              </Grid>
+              <Grid item xs={12}>
+                <Typography variant="h3" gutterBottom align="center">
+                  statistics
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={5}>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Image
+                    alt="Github overview Rupert Bogensperger"
+                    src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/overview.svg"
+                  />
+                </Box>
+              </Grid>
+              {/* {matches && <Divider orientation="vertical" flexItem />} */}
+              <Grid item xs={12} sm={5}>
+                <Box sx={{ textAlign: 'center' }}>
+                  <Image
+                    alt="Github language statistics Rupert Bogensperger"
+                    src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/languages.svg"
+                  />
+                </Box>
+              </Grid>
+            </Grid>
+          </section>
+        </Paper>
+      </Container>
+    </>
   )
 }
 
@@ -134,7 +158,7 @@ const items = [
     //@ts-ignore
     val: <CardMediaCus component="img" src={austria} />,
   },
-  { key: 'born', val: '2001' },
+  { key: 'age', val: `${age} years` },
   { key: 'languages', val: 'german (native), english' },
   { key: 'current working position', val: 'CTO @ Sixth Edition' },
   {

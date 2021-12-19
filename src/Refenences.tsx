@@ -1,5 +1,4 @@
 import {
-  Box,
   Card,
   CardActions,
   CardContent,
@@ -11,10 +10,11 @@ import {
   Typography,
 } from '@mui/material'
 import { styled } from '@mui/system'
-import React, { FunctionComponent, ReactComponentElement, ReactNode, useState } from 'react'
-import feratel, { ReactComponent as Feratel } from './@static/media/logo-feratel.svg'
-import teamABC from './@static/media/TeamABC.jpg'
+import React, { FunctionComponent, ReactNode, useState } from 'react'
+import Helmet from 'react-helmet'
+import feratel from './@static/media/logo-feratel.svg'
 import ubispaze from './@static/media/logo-ubispaze.png'
+import teamABC from './@static/media/TeamABC.jpg'
 
 export const FILE = __filename
 type IFormik = {}
@@ -37,43 +37,59 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
   const [values, setState] = useState<IRefenencesState>({})
 
   return (
-    <Container sx={{ mb: 1 }} id="Refenences">
-      <Card elevation={18} variant="elevation" sx={{ p: 3 }}>
-        <Typography variant="h2" gutterBottom>
-          Refenences
-        </Typography>
-        {items.map(({ action, description, name, organisation, status, time, tasks, img }) => (
-          <Card sx={{ mb: 2 }} id={'ref_' + name}>
-            <CardHeader title={name} />
-            <CardContent>
-              <Typography noWrap variant="subtitle1">
-                {organisation} &mdash; {status}
-              </Typography>
-              <Typography variant="caption" noWrap>
-                {time}
-              </Typography>
-              <Divider />
-              <Typography
-                gutterBottom
-                sx={{
-                  my: 2,
-                  '::after': {
-                    content: '""',
-                    clear: 'both',
-                    display: 'table',
-                  },
-                }}
-              >
-                {img}
-                {description}
-              </Typography>
-              <Typography variant="body2">Tasks: {tasks}</Typography>
-            </CardContent>
-            {action && <CardActions>{action}</CardActions>}
-          </Card>
-        ))}
-      </Card>
-    </Container>
+    <>
+      <Helmet>
+        <title>Refenences</title>
+        <meta
+          name="description"
+          content="Rupert Bogensperger worked for feratel media AG, TeamABC and for Sixth Edition. Further, he had an startup. ⭐"
+        />
+        <meta property="og:title" content="Rupert Bogensperger - About" />
+        <meta
+          property="og:description"
+          content="Rupert Bogensperger worked for feratel media AG, TeamABC and for Sixth Edition. Further, he had an startup. ⭐"
+        />
+      </Helmet>
+      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
+        Rupert Bogensperger - Refenences
+      </Typography>
+      <Container sx={{ mb: 1 }} id="Refenences">
+        <Card elevation={18} variant="elevation" sx={{ p: 3 }}>
+          {items.map(({ action, description, name, organisation, status, time, tasks, img }) => (
+            <article>
+              <Card sx={{ mb: 2 }} id={'ref_' + name}>
+                <CardHeader title={name} />
+                <CardContent>
+                  <Typography noWrap variant="subtitle1">
+                    {organisation} &mdash; {status}
+                  </Typography>
+                  <Typography variant="caption" noWrap>
+                    <time>{time}</time>
+                  </Typography>
+                  <Divider />
+                  <Typography
+                    gutterBottom
+                    sx={{
+                      my: 2,
+                      '::after': {
+                        content: '""',
+                        clear: 'both',
+                        display: 'table',
+                      },
+                    }}
+                  >
+                    {img}
+                    {description}
+                  </Typography>
+                  <Typography variant="body2">Tasks: {tasks}</Typography>
+                </CardContent>
+                {action && <CardActions>{action}</CardActions>}
+              </Card>
+            </article>
+          ))}
+        </Card>
+      </Container>
+    </>
   )
 }
 

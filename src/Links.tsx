@@ -18,25 +18,29 @@ export const Links: FunctionComponent<ILinksProps> = props => {
   const [values, setState] = useState<ILinksState>({})
 
   return (
-    <Container sx={{ mb: 1 }} id="Links">
-      <Card elevation={12} variant="elevation" sx={{ p: 3 }}>
-        <Typography variant="h2" gutterBottom>
-          Links
-        </Typography>
-        <Grid sx={{ m: 1 }} container>
-          {items.map(({ href, icon, title }) => (
-            <Grid item xs={4} md={1}>
-              <Link href={href} target="_blank" underline="none">
-                <Avatar sx={{ bgcolor: 'inherit', m: 'auto' }} variant="rounded">
-                  {icon}
-                </Avatar>
-                <Typography align="center">{title}</Typography>
-              </Link>
+    <footer>
+      <Container sx={{ mb: 1 }} id="Links">
+        <Card elevation={12} variant="elevation" sx={{ p: 3 }}>
+          <Typography variant="h2" gutterBottom>
+            Links
+          </Typography>
+          <nav>
+            <Grid sx={{ m: 1 }} container>
+              {items.map(({ href, icon, title }) => (
+                <Grid item xs={4} md={1}>
+                  <Link href={href} target="_blank" underline="none">
+                    <Avatar sx={{ bgcolor: 'inherit', m: 'auto' }} variant="rounded">
+                      {icon}
+                    </Avatar>
+                    <Typography align="center">{title}</Typography>
+                  </Link>
+                </Grid>
+              ))}
             </Grid>
-          ))}
-        </Grid>
-      </Card>
-    </Container>
+          </nav>
+        </Card>
+      </Container>
+    </footer>
   )
 }
 
@@ -49,7 +53,7 @@ const items = [
     title: 'Thingiverse',
   },
   {
-    href: 'https://at.linkedin.com/in/rupert-bogensperger-43707a192',
+    href: 'https://at.linkedin.com/in/ru4ert',
     icon: <LinkedIn />,
     title: 'linkedIn',
   },

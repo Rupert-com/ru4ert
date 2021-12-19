@@ -2,7 +2,7 @@ import { createTheme, responsiveFontSizes } from '@mui/material/styles'
 import { Box, CssBaseline, GlobalStyles, ThemeProvider } from '@mui/material'
 import { fontFamily } from '@mui/system'
 import React, { FunctionComponent, useMemo, useState } from 'react'
-import { Nav } from './Nav'
+import { App } from './App'
 
 declare module '@mui/material/Button' {
   interface ButtonPropsVariantOverrides {
@@ -67,6 +67,7 @@ export const Styling: FunctionComponent = props => {
       styles={{
         '*': {
           scrollMarginTop: '120px',
+          textDecoration: 'auto',
         },
       }}
     />
@@ -76,7 +77,7 @@ export const Styling: FunctionComponent = props => {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       {inputGlobalStyles}
-      <Nav />
+      <App />
     </ThemeProvider>
   )
 }

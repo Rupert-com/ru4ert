@@ -14,6 +14,7 @@ import {
   useMediaQuery,
   Box,
 } from '@mui/material'
+import Helmet from 'react-helmet'
 import { styled, keyframes } from '@mui/system'
 import React, { FunctionComponent, ReactNode, useState } from 'react'
 import apache, { ReactComponent as Apache } from './@static/media/apache.svg'
@@ -94,21 +95,23 @@ const Skill: FunctionComponent<IData & { index: number }> = ({
   let pre = undefined
   if (content.length > 1) pre = content[1]
   return (
-    <Paper key={index}>
-      <Card>
-        <CardActionArea onClick={() => setMore(!more)}>
-          {/* @ts-ignore */}
-          <CardMediaCus title={title} src={src} component="img" />
-          <CardHeader title={title}></CardHeader>
-          <CardContent>
-            <ReadMore pre={pre} more={more} key={`${more}`}>
-              {children}
-            </ReadMore>
-          </CardContent>
-        </CardActionArea>
-        {action && <CardActions>{action}</CardActions>}
-      </Card>
-    </Paper>
+    <section>
+      <Paper key={index}>
+        <Card>
+          <CardActionArea onClick={() => setMore(!more)}>
+            {/* @ts-ignore */}
+            <CardMediaCus title={title} src={src} component="img" />
+            <CardHeader title={title}></CardHeader>
+            <CardContent>
+              <ReadMore pre={pre} more={more} key={`${more}`}>
+                {children}
+              </ReadMore>
+            </CardContent>
+          </CardActionArea>
+          {action && <CardActions>{action}</CardActions>}
+        </Card>
+      </Paper>
+    </section>
   )
 }
 
@@ -127,18 +130,32 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
   ]
 
   return (
-    <Container id="Skills" sx={{ mb: 1 }}>
-      <Paper elevation={12} sx={{ p: 3 }}>
-        <Typography variant="h2" gutterBottom>
-          Skills and Techniques
-        </Typography>
-        <MasonryCus columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>
-          {itemData.map((v, i) => (
-            <Skill {...v} index={i} />
-          ))}
-        </MasonryCus>
-      </Paper>
-    </Container>
+    <>
+      <Helmet>
+        <title>Skills and Techniques</title>
+        <meta
+          name="description"
+          content="Rupert Bogensperger has serveral quality Skills. He uses TypeScript and JavaScript for webdevelopment, Python and C# for Desktop and Kotlin or Java for Android developing. Further, he uses Linux as operation system for Enterprise."
+        />
+        <meta property="og:title" content="Rupert Bogensperger - Skills and Techniques" />
+        <meta
+          property="og:description"
+          content="Rupert Bogensperger has serveral quality Skills. He uses TypeScript and JavaScript for webdevelopment, Python and C# for Desktop and Kotlin or Java for Android developing. Further, he uses Linux as operation system for Enterprise."
+        />
+      </Helmet>
+      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
+        Rupert Bogensperger - Skills and Techniques
+      </Typography>
+      <Container id="Skills" sx={{ mb: 1 }}>
+        <Paper elevation={12} sx={{ p: 3 }}>
+          <MasonryCus columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>
+            {itemData.map((v, i) => (
+              <Skill {...v} index={i} />
+            ))}
+          </MasonryCus>
+        </Paper>
+      </Container>
+    </>
   )
 }
 const itemData: IData[] = [
