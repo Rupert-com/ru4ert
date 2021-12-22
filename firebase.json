@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "public": "build",
     "predeploy": "yarn run build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
@@ -39,7 +38,7 @@
       },
       {
         "source": "**",
-        "destination": "/index.html"
+        "function": "index"
       }
     ]
   },
