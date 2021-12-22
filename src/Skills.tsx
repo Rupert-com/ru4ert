@@ -100,7 +100,7 @@ const Skill: FunctionComponent<IData & { index: number }> = ({
         <Card>
           <CardActionArea onClick={() => setMore(!more)}>
             {/* @ts-ignore */}
-            <CardMediaCus title={title} src={src} component="img" />
+            <CardMediaCus alt={title} title={title} src={src} component="img" />
             <CardHeader title={title}></CardHeader>
             <CardContent>
               <ReadMore pre={pre} more={more} key={`${more}`}>
@@ -146,7 +146,7 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
       <Typography variant="h1" sx={{ my: 10, px: 2 }}>
         Rupert Bogensperger - Skills and Techniques
       </Typography>
-      <Container id="Skills" sx={{ mb: 1 }}>
+      <Container sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3 }}>
           <MasonryCus columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>
             {itemData.map((v, i) => (
@@ -172,7 +172,7 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.docker.com/" target="_blank">
+        <Link title="see more to Docker" href="https://www.docker.com/" target="_blank">
           Docker
         </Link>
       </Typography>
@@ -185,7 +185,7 @@ const itemData: IData[] = [
     content: [<Typography>Node.js is a server side runtime enviroment for JavaScript.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://nodejs.org/en/" target="_blank">
+        <Link title="see more to NodeJs" href="https://nodejs.org/en/" target="_blank">
           NodeJs
         </Link>
       </Typography>
@@ -198,7 +198,7 @@ const itemData: IData[] = [
     content: [<Typography>Apache HTTP Server is a HTTP Server</Typography>],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://httpd.apache.org/" target="_blank">
+        <Link title="see more to Apache" href="https://httpd.apache.org/" target="_blank">
           Apache
         </Link>
       </Typography>
@@ -240,7 +240,7 @@ const itemData: IData[] = [
     action: (
       <Typography variant="caption">
         <Link
-          title="see more"
+          title="see more to CSS"
           href="https://www.w3.org/standards/webdesign/htmlcss"
           target="_blank"
         >
@@ -259,7 +259,7 @@ const itemData: IData[] = [
     action: (
       <Typography variant="caption">
         <Link
-          title="see more"
+          title="see more to Debian"
           href="https://www.debian.org/doc/manuals/project-history/"
           target="_blank"
         >
@@ -277,7 +277,7 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://eslint.org/" target="_blank">
+        <Link title="see more to Eslint" href="https://eslint.org/" target="_blank">
           Eslint
         </Link>
       </Typography>
@@ -295,7 +295,7 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://flutter.dev/" target="_blank">
+        <Link title="see more to Flutter" href="https://flutter.dev/" target="_blank">
           Flutter
         </Link>
       </Typography>
@@ -307,8 +307,8 @@ const itemData: IData[] = [
     title: 'Git',
     content: [<Typography>Git is a version control system.</Typography>],
     action: (
-      <Typography title="see more" variant="caption">
-        <Link href="https://git-scm.com/" target="_blank">
+      <Typography variant="caption">
+        <Link title="see more Git" href="https://git-scm.com/" target="_blank">
           Git
         </Link>
       </Typography>
@@ -327,7 +327,7 @@ const itemData: IData[] = [
     content: [<Typography>GraphQL is a query language to request server APIs</Typography>],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://graphql.org/" target="_blank">
+        <Link title="see more to Graphql" href="https://graphql.org/" target="_blank">
           Graphql
         </Link>
       </Typography>
@@ -348,7 +348,7 @@ const itemData: IData[] = [
     action: (
       <Typography variant="caption">
         <Link
-          title="see more"
+          title="see more HTML 1.0"
           href="https://web.cs.wpi.edu/~kal/fs/htmlstuff/FShtml1.html"
           target="_blank"
         >
@@ -384,7 +384,7 @@ const itemData: IData[] = [
         <Link
           href="https://www.codecademy.com/resources/blog/javascript-history-popularity/"
           target="_blank"
-          title="see more"
+          title="see more to JavaScript"
         >
           JavaScript: How Did It Get So Popular?
         </Link>
@@ -404,7 +404,7 @@ const itemData: IData[] = [
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.json.org/json-en.html" target="_blank" title="see more">
+        <Link href="https://www.json.org/json-en.html" target="_blank" title="see more to JSON">
           JSON
         </Link>
       </Typography>
@@ -445,7 +445,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://kotlinlang.org/" target="_blank" title="see more">
+        <Link href="https://kotlinlang.org/" target="_blank" title="see more to Kotlin">
           Source
         </Link>
       </Typography>
@@ -463,7 +463,7 @@ length = mitglied.getLastname().length()
         <Link
           href="https://upload.wikimedia.org/wikipedia/commons/b/b5/Linux_Distribution_Timeline_21_10_2021.svg"
           target="_blank"
-          title="see more"
+          title="Linux Distribution Timeline"
         >
           See how many Linux Distribution exists on a Timeline
         </Link>
@@ -482,7 +482,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link href="https://www.mongodb.com/" title="see more" target="_blank">
+        <Link href="https://www.mongodb.com/" title="see more to MongoDB" target="_blank">
           MongoDB
         </Link>
       </Typography>
@@ -495,7 +495,7 @@ length = mitglied.getLastname().length()
     content: [<Typography>MySQL is a Database Service relational database.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.mysql.com/" target="_blank">
+        <Link title="see more to MySQL" href="https://www.mysql.com/" target="_blank">
           MySQL
         </Link>
       </Typography>
@@ -510,7 +510,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.php.net/" target="_blank">
+        <Link title="see more to PHP" href="https://www.php.net/" target="_blank">
           PHP
         </Link>
       </Typography>
@@ -532,7 +532,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://prettier.io/" target="_blank">
+        <Link title="see more to Prettier" href="https://prettier.io/" target="_blank">
           Prettier
         </Link>
       </Typography>
@@ -545,7 +545,7 @@ length = mitglied.getLastname().length()
     content: [<Typography>Python is a widespread programming language.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.python.org/" target="_blank">
+        <Link title="see more to Python" href="https://www.python.org/" target="_blank">
           Python
         </Link>
       </Typography>
@@ -583,7 +583,11 @@ length = mitglied.getLastname().length()
     action: (
       <>
         <Typography variant="caption">
-          <Link title="see more" href="https://www.raspberrypi.com/about/" target="_blank">
+          <Link
+            title="see more to Raspberry Pi"
+            href="https://www.raspberrypi.com/about/"
+            target="_blank"
+          >
             Raspberry Pi
           </Link>
         </Typography>
@@ -597,7 +601,7 @@ length = mitglied.getLastname().length()
     content: [<Typography>Redis is a high-performance in-memory database.</Typography>],
     action: (
       <Typography variant="caption">
-        <Link href="https://redis.io/" target="_blank" title="see more">
+        <Link href="https://redis.io/" target="_blank" title="see more to Redis">
           Redis
         </Link>
       </Typography>
@@ -615,7 +619,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://sass-lang.com/" target="_blank">
+        <Link title="see more to Sass" href="https://sass-lang.com/" target="_blank">
           Sass
         </Link>
       </Typography>
@@ -643,7 +647,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.typescriptlang.org/" target="_blank">
+        <Link title="see more to TypeScript" href="https://www.typescriptlang.org/" target="_blank">
           TypeScript
         </Link>
       </Typography>
@@ -661,7 +665,7 @@ length = mitglied.getLastname().length()
     ],
     action: (
       <Typography variant="caption">
-        <Link title="see more" href="https://www.w3.org/Consortium/" target="_blank">
+        <Link title="see more to W3C" href="https://www.w3.org/Consortium/" target="_blank">
           W3C
         </Link>
       </Typography>

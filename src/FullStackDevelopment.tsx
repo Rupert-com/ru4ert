@@ -37,14 +37,14 @@ export const FullStackDevelopment: FunctionComponent<IFullStackDevelopmentProps>
                 <strong aria-describedby="#9999">Frontend</strong> of a application.
               </Grid>
               <Grid item xs={12} sx={{ p: 2 }}>
-                <Typography variant="h4" gutterBottom>
+                <Typography component="h3" variant="h4" gutterBottom>
                   Frontend
                 </Typography>
                 <Typography id="9999" gutterBottom>
                   All software applications which is execuded by client devices. Clients are
                   Smartphones, Desktop or Browser. 📱
                 </Typography>
-                <Typography variant="h4" gutterBottom>
+                <Typography component="h3" variant="h4" gutterBottom>
                   Backend
                 </Typography>
                 <Typography id="8888" gutterBottom>

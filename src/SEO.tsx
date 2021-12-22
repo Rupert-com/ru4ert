@@ -25,10 +25,22 @@ export const SEO: FunctionComponent<ISEOProps> = props => {
         Rupert Bogensperger - Search Engine Optimization
       </Typography>
       <Container sx={{ mb: 1 }}>
-        <Paper elevation={12} sx={{ p: 3 }}>
+        <Paper elevation={12} sx={{ p: 3, mb: 3 }}>
           <article>
             <Typography variant="h2">What is Search Engine Optimization?</Typography>
-            <Typography></Typography>
+            <Typography>
+              Search Engine Optimization describes the progress of optimising websites for search
+              engines. To put it simply, rewriting texts as well as structure your website properly
+              and setting alt-Props and title-Props to your Links and Images. Further, the more
+              complex part consists of analyzing user interactions and offering solutions to the
+              search queries made by the user.
+            </Typography>
+          </article>
+        </Paper>
+        <Paper elevation={12} sx={{ p: 3, mb: 3 }}>
+          <article>
+            <Typography variant="h2">Why is Search Engine Optimization important?</Typography>
+            <Typography>Search Engine Optimization describes </Typography>
           </article>
         </Paper>
       </Container>

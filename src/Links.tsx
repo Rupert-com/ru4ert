@@ -28,7 +28,12 @@ export const Links: FunctionComponent<ILinksProps> = props => {
             <Grid sx={{ m: 1 }} container>
               {items.map(({ href, icon, title }) => (
                 <Grid item xs={4} md={1}>
-                  <Link href={href} target="_blank" underline="none">
+                  <Link
+                    href={href}
+                    target="_blank"
+                    underline="none"
+                    title={`Visit Rupert's ${title}`}
+                  >
                     <Avatar sx={{ bgcolor: 'inherit', m: 'auto' }} variant="rounded">
                       {icon}
                     </Avatar>

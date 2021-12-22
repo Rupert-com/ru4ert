@@ -101,6 +101,7 @@ export const About: FunctionComponent<IAboutProps> = props => {
                     onMouseEnter={() => setState({ ...values, rupertImgsrc: 'rupert_alt.jpg' })}
                     onMouseLeave={() => setState({ ...values, rupertImgsrc: 'rupert_neu.jpg' })}
                     alt="Rupert Bogensperger"
+                    title="Rupert Bogensperger"
                     src={values.rupertImgsrc}
                   />
                 </Badge>
@@ -130,6 +131,7 @@ export const About: FunctionComponent<IAboutProps> = props => {
               <Grid item xs={12} sm={5}>
                 <Box sx={{ textAlign: 'center' }}>
                   <Image
+                    title="Github overview Rupert Bogensperger"
                     alt="Github overview Rupert Bogensperger"
                     src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/overview.svg"
                   />
@@ -139,6 +141,7 @@ export const About: FunctionComponent<IAboutProps> = props => {
               <Grid item xs={12} sm={5}>
                 <Box sx={{ textAlign: 'center' }}>
                   <Image
+                    title="Github language statistics Rupert Bogensperger"
                     alt="Github language statistics Rupert Bogensperger"
                     src="https://raw.githubusercontent.com/Rupert-com/github-stats/master/generated/languages.svg"
                   />
@@ -157,7 +160,7 @@ const items = [
   {
     key: 'nationality',
     //@ts-ignore
-    val: <CardMediaCus component="img" src={austria} />,
+    val: <CardMediaCus title="austia" alt="austia" component="img" src={austria} />,
   },
   { key: 'age', val: `${age} years` },
   { key: 'languages', val: 'german (native), english' },
@@ -165,7 +168,12 @@ const items = [
   {
     key: 'last attended school',
     val: (
-      <Link rel="noopener" target="_blank" href="https://www.tgm.ac.at/tagesschule/">
+      <Link
+        rel="noopener"
+        target="_blank"
+        title="TGM - Technologisches Gewerbemuseum"
+        href="https://www.tgm.ac.at/tagesschule/"
+      >
         TGM - Technologisches Gewerbemuseum
       </Link>
     ),

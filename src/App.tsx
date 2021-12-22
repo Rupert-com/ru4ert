@@ -86,6 +86,7 @@ export const App: FunctionComponent<INavProps> = props => {
 
                       textDecoration: window.location.pathname === '/' ? 'underline' : 'auto',
                     }}
+                    title="Rupert Bogensperger"
                   >
                     Rupert Bogensperger
                   </Typography>
@@ -125,7 +126,7 @@ export const App: FunctionComponent<INavProps> = props => {
                         key={path}
                         onClick={handleCloseNavMenu}
                       >
-                        <Link to={path}>
+                        <Link to={path} title={name}>
                           <Typography textAlign="center">{name}</Typography>
                         </Link>
                       </MenuItem>
@@ -143,6 +144,7 @@ export const App: FunctionComponent<INavProps> = props => {
                     color: 'primary.contrastText',
                     textDecoration: window.location.pathname === '/' ? 'underline' : 'auto',
                   }}
+                  title="Rupert Bogensperger"
                 >
                   Rupert Bogensperger
                 </Typography>
@@ -158,7 +160,7 @@ export const App: FunctionComponent<INavProps> = props => {
                   }}
                 >
                   {pages.map(({ name, path }) => (
-                    <Button href={path}>
+                    <Button href={path} title={name}>
                       <Typography
                         sx={{
                           color: 'text.primary',
