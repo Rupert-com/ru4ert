@@ -1,7 +1,6 @@
 {
+  "root": true,
   "plugins": [
-    // https://www.npmjs.com/package/eslint-plugin-deprecation
-    "deprecation"
   ],
   "extends": [
     "react-app",
@@ -14,7 +13,6 @@
     "@typescript-eslint/no-unused-vars": 0,
     "eqeqeq": "warn",
     "camelcase": "warn",
-    "deprecation/deprecation": "warn",
     "no-restricted-imports": [
       "warn",
       {
@@ -23,15 +21,13 @@
     ]
   },
   "parserOptions": {
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaVersion": 2020,
+    "project": "./tsconfig.json" 
   },
   "overrides": [
     {
       "files": ["*.ts", "*.tsx"],
-      "parserOptions": {
-        // this setting is required to use rules that require type information
-        "project": "./tsconfig.json"
-      },
       "rules": {
         "@typescript-eslint/prefer-nullish-coalescing": "error"
       }

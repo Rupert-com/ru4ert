@@ -24,6 +24,13 @@ import { Skills } from './Skills'
 import Helmet from 'react-helmet'
 import { SEO } from './SEO'
 import { Services } from './Services'
+import { styled } from '@mui/system'
+
+const CusMenuItem = styled(MenuItem)(({ theme }) => ({
+  '&.Mui-selected': {
+    color: theme.palette.text.disabled,
+  },
+}))
 
 const HideOnScroll: FunctionComponent<{
   children: React.ReactElement
@@ -126,7 +133,7 @@ export const App: FunctionComponent<INavProps> = props => {
                         key={path}
                         onClick={handleCloseNavMenu}
                       >
-                        <Link to={path} title={name}>
+                        <Link target="_self" to={path} title={name}>
                           <Typography textAlign="center">{name}</Typography>
                         </Link>
                       </MenuItem>
@@ -160,7 +167,7 @@ export const App: FunctionComponent<INavProps> = props => {
                   }}
                 >
                   {pages.map(({ name, path }) => (
-                    <Button href={path} title={name}>
+                    <Button href={path} title={name} target="_self">
                       <Typography
                         sx={{
                           color: 'text.primary',
