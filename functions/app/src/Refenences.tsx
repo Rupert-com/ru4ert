@@ -105,7 +105,7 @@ const items: {
 }[] = [
   {
     name: 'TeamABC',
-    description: '',
+    description: `Team ABC is global venture capital fund for air, land and sea transportation and tourism innovation. Team ABC finds, supports and scales early-stage disruptive technology startups focused on increasing sustainability and digital transformation in travel and logistics. Combining years of senior executive experience in the travel industry with a deep understanding of venture building, the fund's team helps companies solving a clear industry problem reach a global market.`,
     time: '2021',
     organisation: (
       <Link href="https://teamabc.ventures/" target="_blank">

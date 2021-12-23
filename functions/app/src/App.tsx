@@ -25,10 +25,12 @@ import Helmet from 'react-helmet'
 import { SEO } from './SEO'
 import { Services } from './Services'
 import { styled } from '@mui/system'
+import { DarkModeComponent } from './DarkModeComponent'
 
 const CusMenuItem = styled(MenuItem)(({ theme }) => ({
   '&.Mui-selected': {
     color: theme.palette.text.disabled,
+    textDecoration: 'underline',
   },
 }))
 
@@ -49,7 +51,10 @@ const HideOnScroll: FunctionComponent<{
   )
 }
 
-type INavProps = {}
+type INavProps = {
+  updateDarkmode: (value: string, numberOfDays: Date) => void
+  darkmode: boolean
+}
 type INavState = {}
 
 const pages = [
@@ -60,7 +65,7 @@ const pages = [
   { name: 'Services', path: '/Services' },
 ]
 
-export const App: FunctionComponent<INavProps> = props => {
+export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ...other }) => {
   const [values, setState] = useState<INavState>({})
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
@@ -76,29 +81,31 @@ export const App: FunctionComponent<INavProps> = props => {
   return (
     <Box>
       <Router>
-        <HideOnScroll {...props}>
+        <HideOnScroll {...other}>
           <AppBar>
             <Container maxWidth="xl">
-              <Toolbar disableGutters>
-                <Box>
-                  <Typography
-                    variant="h6"
-                    noWrap
-                    component={Link}
-                    to="/"
-                    sx={{
-                      mr: 2,
-                      display: { xs: 'none', md: 'flex' },
-                      color: 'primary.contrastText',
-
-                      textDecoration: window.location.pathname === '/' ? 'underline' : 'auto',
-                    }}
-                    title="Rupert Bogensperger"
-                  >
-                    Rupert Bogensperger
-                  </Typography>
+              <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    display: { xs: 'none', lg: 'flex' },
+                  }}
+                >
+                  <Button href="/" title="Rupert Bogensperger" target="_self">
+                    <Typography
+                      variant="h6"
+                      component="div"
+                      noWrap
+                      sx={{
+                        color: 'primary.contrastText',
+                        textDecoration: window.location.pathname === '/' ? 'underline' : 'none',
+                      }}
+                    >
+                      Rupert Bogensperger
+                    </Typography>
+                  </Button>
                 </Box>
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
                   <IconButton
                     size="large"
                     aria-label="account of current user"
@@ -124,11 +131,11 @@ export const App: FunctionComponent<INavProps> = props => {
                     open={Boolean(anchorElNav)}
                     onClose={handleCloseNavMenu}
                     sx={{
-                      display: { xs: 'block', md: 'none' },
+                      display: { md: 'block', lg: 'none' },
                     }}
                   >
                     {pages.map(({ name, path }) => (
-                      <MenuItem
+                      <CusMenuItem
                         selected={window.location.pathname === path}
                         key={path}
                         onClick={handleCloseNavMenu}
@@ -136,28 +143,33 @@ export const App: FunctionComponent<INavProps> = props => {
                         <Link target="_self" to={path} title={name}>
                           <Typography textAlign="center">{name}</Typography>
                         </Link>
-                      </MenuItem>
+                      </CusMenuItem>
                     ))}
                   </Menu>
                 </Box>
-                <Typography
-                  to="/"
-                  variant="h6"
-                  noWrap
-                  component={Link}
-                  sx={{
-                    flexGrow: 1,
-                    display: { xs: 'flex', md: 'none' },
-                    color: 'primary.contrastText',
-                    textDecoration: window.location.pathname === '/' ? 'underline' : 'auto',
-                  }}
-                  title="Rupert Bogensperger"
-                >
-                  Rupert Bogensperger
-                </Typography>
                 <Box
                   sx={{
-                    display: { xs: 'none', md: 'flex' },
+                    flexGrow: 1,
+                    display: { xs: 'flex', lg: 'none' },
+                  }}
+                >
+                  <Button href="/" title="Rupert Bogensperger" target="_self">
+                    <Typography
+                      variant="h6"
+                      noWrap
+                      component="div"
+                      sx={{
+                        color: 'primary.contrastText',
+                        textDecoration: window.location.pathname === '/' ? 'underline' : 'none',
+                      }}
+                    >
+                      Rupert Bogensperger
+                    </Typography>
+                  </Button>
+                </Box>
+                <Box
+                  sx={{
+                    display: { xs: 'none', lg: 'flex' },
                     flexWrap: 'wrap',
                     justifyContent: 'center',
                     typography: 'body1',
@@ -179,7 +191,9 @@ export const App: FunctionComponent<INavProps> = props => {
                     </Button>
                   ))}
                 </Box>
-                <Box sx={{ flexGrow: 0 }}></Box>
+                <Box sx={{ flexGrow: 0, ml: 1 }}>
+                  <DarkModeComponent darkmode={darkmode} updateDarkmode={updateDarkmode} />
+                </Box>
               </Toolbar>
             </Container>
           </AppBar>
