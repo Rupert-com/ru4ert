@@ -30,14 +30,18 @@ export const Services: FunctionComponent<IServicesProps> = props => {
         <Paper elevation={12} sx={{ p: 3 }}>
           {[
             { headline: '3D - Printing' },
-            { headline: 'Webside developing' },
+            {
+              headline: 'Webside developing',
+              info: 'I am developing Full Stack Applications the native way.',
+            },
             { headline: 'IT Consulting' },
-          ].map(({ headline }) => (
+          ].map(({ headline, info }) => (
             <article>
               <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
                 <Typography variant="h2" gutterBottom>
                   {headline}
                 </Typography>
+                {info && <Typography>{info}</Typography>}
               </Paper>
             </article>
           ))}
