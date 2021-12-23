@@ -87,7 +87,6 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
               <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
                 <Box
                   sx={{
-                    flexGrow: 1,
                     display: { xs: 'none', lg: 'flex' },
                   }}
                 >
@@ -105,7 +104,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
                     </Typography>
                   </Button>
                 </Box>
-                <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
+                <Box sx={{ display: { xs: 'flex', lg: 'none' } }}>
                   <IconButton
                     size="large"
                     aria-label="account of current user"
