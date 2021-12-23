@@ -80,6 +80,7 @@ export const DarkModeComponent: FunctionComponent<IDarkModeComponentProps> = ({
   <CusFormControlLabel
     control={
       <MaterialUISwitch
+        aria-label={`darkmode ${darkmode ? 'enabled' : 'disabled'}`}
         sx={{ m: 1 }}
         defaultChecked={darkmode}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
