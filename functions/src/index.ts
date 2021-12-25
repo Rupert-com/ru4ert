@@ -2,13 +2,15 @@ import * as functions from 'firebase-functions'
 import * as express from 'express'
 import * as path from 'path'
 import * as isbot from 'isbot'
-// import * as puppeteer from 'puppeteer'
-// import * as fs from 'fs'
+import * as cors from 'cors'
 
 const app = express()
-app.get('*', async (req, res) => {
-  if (isbot(req.headers['user-agent'])) {
-    const cPath = [__dirname, '..', 'app', 'build']
+app.use(cors({ origin: true }));
+
+app.get('/*', async (req, res) => {
+  if (isbot(req.get('user-agent'))) {
+    functions.logger.info(`Hello bot: ${req.get('user-agent')}`)
+    const cPath = [__dirname, '..', 'app', 'dist']
 
     switch (req.query.url) {
       case '/FullStackDevelopment':
@@ -30,10 +32,11 @@ app.get('*', async (req, res) => {
     cPath.push('index.html')
     res.sendFile(path.resolve(...cPath))
   } else {
+    functions.logger.info(`Hello user: ${req.get('user-agent')}`)
     res.sendFile(path.resolve(__dirname, '..', 'app', 'build', 'index.html'))
   }
 })
 
 // app.use(prerenderNode.set('prerenderToken', 'sg6OgFYXOciBsLArnyc4'))
 
-export const index = functions.https.onRequest(app)
+export const index = functions.runWith({}).https.onRequest(app)

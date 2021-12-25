@@ -72,13 +72,13 @@ export const About: FunctionComponent<IAboutProps> = props => {
         <title>About</title>
         <meta
           name="description"
-          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full Stack Developer. Currently he is working for Sixth Edition.`}
+          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full-Stack-Developer. Currently he is working for Sixth Edition.`}
         />
         <meta property="og:title" content="Rupert Bogensperger - About" />
         <meta property="og:image" content="https://ru4ert.com/rupert_neu.jpg" />
         <meta
           property="og:description"
-          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full Stack Developer. Currently he is working for Sixth Edition.`}
+          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full-Stack-Developer. Currently he is working for Sixth Edition.`}
         />
       </Helmet>
       <Typography variant="h1" sx={{ my: 10, px: 2 }}>
@@ -164,7 +164,22 @@ const items = [
   },
   { key: 'age', val: `${age} years` },
   { key: 'languages', val: 'german (native), english' },
-  { key: 'current working position', val: 'CTO @ Sixth Edition' },
+  {
+    key: 'current working position',
+    val: (
+      <p>
+        CTO&nbsp;
+        <Link
+          rel="noopener"
+          target="_blank"
+          title="Sixth Edition"
+          href="https://thesixthedition.com/"
+        >
+          @Sixth Edition
+        </Link>
+      </p>
+    ),
+  },
   {
     key: 'last attended school',
     val: (
@@ -176,6 +191,32 @@ const items = [
       >
         TGM - Technologisches Gewerbemuseum
       </Link>
+    ),
+  },
+  {
+    key: 'programming languages I tested',
+    val: (
+      <Typography noWrap>
+        {[
+          'Assembler',
+          'Bash',
+          'C#',
+          'C++',
+          'CSS',
+          'HTML',
+          'Java',
+          'JavaScript',
+          'Kotlin',
+          'PHP',
+          'Python',
+          'Typescript',
+          'VBA',
+        ].map((it, index) => (
+          <>
+            <strong>{it}</strong>,{index % 9 === 0 ? <br /> : ' '}
+          </>
+        ))}
+      </Typography>
     ),
   },
 ]

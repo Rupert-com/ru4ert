@@ -12,27 +12,27 @@ export const FullStackDevelopment: FunctionComponent<IFullStackDevelopmentProps>
   return (
     <>
       <Helmet>
-        <title>Full Stack Development</title>
+        <title>Full-Stack-Development</title>
         <meta
           name="description"
-          content="Rupert Bogensperger is a Full Stack Developer. He develops Backend and Frontend Applications."
+          content="Rupert Bogensperger is a Full-Stack-Developer. He develops Backend and Frontend Applications."
         />
         <meta property="og:title" content="Rupert Bogensperger - Development" />
         <meta
           property="og:description"
-          content="Rupert Bogensperger is a Full Stack Developer. He develops Backend and Frontend Applications."
+          content="Rupert Bogensperger is a Full-Stack-Developer. He develops Backend and Frontend Applications."
         />
       </Helmet>
       <Typography variant="h1" sx={{ my: 10, px: 2 }}>
-        Rupert Bogensperger - Full Stack Development
+        Rupert Bogensperger - Full-Stack-Development
       </Typography>
       <Container id="FullStackDevelopment" sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3 }}>
           <article>
-            <Typography variant="h2">What is Full Stack Development?</Typography>
+            <Typography variant="h2">What is Full-Stack-Development?</Typography>
             <Grid container>
               <Grid item xs={12} sx={{ p: 2, textAlign: 'center' }}>
-                <strong>Full Stack Development</strong> descripes coding on the&nbsp;
+                <strong>Full-Stack-Development</strong> descripes coding on the&nbsp;
                 <strong aria-describedby="#8888">Backend</strong>&nbsp; and the&nbsp;
                 <strong aria-describedby="#9999">Frontend</strong> of a application.
               </Grid>

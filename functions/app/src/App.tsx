@@ -28,8 +28,10 @@ import { styled } from '@mui/system'
 import { DarkModeComponent } from './DarkModeComponent'
 
 const CusMenuItem = styled(MenuItem)(({ theme }) => ({
+  root: {
+    color: theme.palette.primary.contrastText,
+  },
   '&.Mui-selected': {
-    color: theme.palette.text.disabled,
     textDecoration: 'underline',
   },
 }))
@@ -58,7 +60,7 @@ type INavProps = {
 type INavState = {}
 
 const pages = [
-  { name: 'Full Stack Development', path: '/FullStackDevelopment' },
+  { name: 'Full-Stack-Development', path: '/FullStackDevelopment' },
   { name: 'Refenences', path: '/Refenences' },
   { name: 'Skills', path: '/Skills' },
   { name: 'SEO', path: '/SEO' },
@@ -181,7 +183,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
                     <Button href={path} title={name} target="_self">
                       <Typography
                         sx={{
-                          color: 'text.primary',
+                          color: 'primary.contrastText',
                           textDecoration: window.location.pathname === path ? 'underline' : 'auto',
                         }}
                       >
@@ -200,8 +202,8 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
         <Toolbar />
         <main>
           <Helmet
-            titleTemplate="%s - Rupert Bogensperger | Full Stack Developer"
-            defaultTitle="Rupert Bogensperger | Full Stack Developer"
+            titleTemplate="%s - Rupert Bogensperger | Full-Stack-Developer"
+            defaultTitle="Rupert Bogensperger | Full-Stack-Developer"
           >
             <meta
               name="description"
@@ -211,7 +213,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
             <meta property="og:image" content="https://ru4ert.com/maskable_icon_x512.png" />
             <meta
               property="og:title"
-              content="Rupert Bogensperger | Full Stack Developer & IT Expert"
+              content="Rupert Bogensperger | Full-Stack-Developer & IT-Expert"
             />
             <meta
               property="og:description"

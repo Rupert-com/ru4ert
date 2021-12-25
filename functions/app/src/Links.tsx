@@ -1,12 +1,12 @@
 import { Avatar, Box, Card, Container, Grid, Link, Paper, Typography } from '@mui/material'
 import React, { FunctionComponent, useState } from 'react'
-import { ReactComponent as Instagram } from './@static/media/instagram.svg'
-import { ReactComponent as Github } from './@static/media/github.svg'
-import { ReactComponent as Thingiverse } from './@static/media/Thingiverse.svg'
-import { ReactComponent as LinkedIn } from './@static/media/linkedIn.svg'
-import { ReactComponent as WhatsApp } from './@static/media/whatsapp.svg'
-import { ReactComponent as Email } from './@static/media/email.svg'
-import { ReactComponent as StackOverflow } from './@static/media/stackOverflow.svg'
+import instagram, { ReactComponent as Instagram } from './@static/media/instagram.svg'
+import github, { ReactComponent as Github } from './@static/media/github.svg'
+import thingiverse, { ReactComponent as Thingiverse } from './@static/media/Thingiverse.svg'
+import linkedIn, { ReactComponent as LinkedIn } from './@static/media/linkedIn.svg'
+import whatsApp, { ReactComponent as WhatsApp } from './@static/media/whatsapp.svg'
+import email, { ReactComponent as Email } from './@static/media/email.svg'
+import stackOverflow, { ReactComponent as StackOverflow } from './@static/media/stackOverflow.svg'
 import { green } from '@mui/material/colors'
 
 export const FILE = __filename
@@ -50,31 +50,62 @@ export const Links: FunctionComponent<ILinksProps> = props => {
 }
 
 const items = [
-  { href: 'https://www.instagram.com/ru4ert/', icon: <Instagram />, title: 'Instagram' },
-  { href: 'https://github.com/Rupert-com', icon: <Github />, title: 'Github' },
+  {
+    href: 'https://www.instagram.com/ru4ert/',
+    icon: (
+      <object
+        //@ts-ignore
+        alt="rupert Instagram"
+        title="rupert Instagram"
+        data={instagram}
+        type="image/svg+xml"
+      />
+    ),
+    title: 'Instagram',
+  },
+  {
+    href: 'https://github.com/Rupert-com',
+    //@ts-ignore
+    icon: <object alt="rupert Github" title="rupert Github" data={github} type="image/svg+xml" />,
+    title: 'Github',
+  },
   {
     href: 'https://www.thingiverse.com/rupiert/designs',
-    icon: <Thingiverse />,
+    //@ts-ignore
+    icon: <Thingiverse alt="rupert Thingiverse" title="rupert Thingiverse" />,
     title: 'Thingiverse',
   },
   {
     href: 'https://at.linkedin.com/in/ru4ert',
-    icon: <LinkedIn />,
+    icon: (
+      //@ts-ignore
+      <object alt="rupert linkedIn" title="rupert linkedIn" data={linkedIn} type="image/svg+xml" />
+    ),
     title: 'linkedIn',
   },
   {
     href: 'https://wa.me/message/RSEKN2ONZFS7E1',
-    icon: <WhatsApp />,
+    //@ts-ignore
+    icon: <WhatsApp alt="rupert WhatsApp" title="rupert WhatsApp" />,
     title: 'WhatsApp',
   },
   {
     href: 'mailto:rupertbogensperger21@gmail.com',
-    icon: <Email />,
+    //@ts-ignore
+    icon: <object alt="rupert Email" title="rupert Email" data={email} type="image/svg+xml" />,
     title: 'Email',
   },
   {
     href: 'https://stackoverflow.com/users/11123801/ru4ert',
-    icon: <StackOverflow />,
+    icon: (
+      <object
+    //@ts-ignore
+        alt="rupert Stack-Overflow"
+        title="rupert Stack-Overflow"
+        data={stackOverflow}
+        type="image/svg+xml"
+      />
+    ),
     title: 'Stack-Overflow',
   },
 ]

@@ -32,7 +32,7 @@ export const Styling: FunctionComponent = props => {
                     main: '#00ff14',
                     light: '#70ff5b',
                     dark: '#00ca00',
-                    contrastText: '#fff',
+                    contrastText: '#00ff14',
                   },
                   secondary: { main: '#ff00ea', light: '#ff61ff', dark: '#c700b7' },
                 }
@@ -86,7 +86,7 @@ export const Styling: FunctionComponent = props => {
         }),
         { factor: 2.5 }
       ),
-    [darkmode]
+    [theme.breakpoints, darkmode]
   )
 
   const inputGlobalStyles = (
@@ -95,6 +95,9 @@ export const Styling: FunctionComponent = props => {
         '*': {
           scrollMarginTop: '120px',
           textDecoration: 'auto',
+        },
+        'a:visited': {
+          color: theme.palette.primary.main,
         },
       }}
     />
