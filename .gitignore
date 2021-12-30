@@ -33,3 +33,7 @@ yarn-error.log*
 /functions/lib/**/*.js
 /functions/lib/**/*.js.map
 
+
+**/dist
+**/build
+

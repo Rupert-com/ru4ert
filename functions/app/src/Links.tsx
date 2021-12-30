@@ -1,13 +1,14 @@
 import { Avatar, Box, Card, Container, Grid, Link, Paper, Typography } from '@mui/material'
 import React, { FunctionComponent, useState } from 'react'
-import instagram, { ReactComponent as Instagram } from './@static/media/instagram.svg'
-import github, { ReactComponent as Github } from './@static/media/github.svg'
+import instagram from './@static/media/instagram.webp'
+import github from './@static/media/github.webp'
 import thingiverse, { ReactComponent as Thingiverse } from './@static/media/Thingiverse.svg'
-import linkedIn, { ReactComponent as LinkedIn } from './@static/media/linkedIn.svg'
+import linkedIn from './@static/media/linkedIn.webp'
 import whatsApp, { ReactComponent as WhatsApp } from './@static/media/whatsapp.svg'
-import email, { ReactComponent as Email } from './@static/media/email.svg'
-import stackOverflow, { ReactComponent as StackOverflow } from './@static/media/stackOverflow.svg'
+import email from './@static/media/email.webp'
+import stackOverflow from './@static/media/stackOverflow.webp'
 import { green } from '@mui/material/colors'
+import styled from 'styled-components'
 
 export const FILE = __filename
 type IFormik = {}
@@ -48,25 +49,30 @@ export const Links: FunctionComponent<ILinksProps> = props => {
     </footer>
   )
 }
+const Img = styled('img')(({ theme }) => ({
+  height: 'auto',
+  width: '100%',
+}))
 
 const items = [
   {
     href: 'https://www.instagram.com/ru4ert/',
     icon: (
-      <object
+      // <picture>
+      <Img
         //@ts-ignore
         alt="rupert Instagram"
         title="rupert Instagram"
-        data={instagram}
-        type="image/svg+xml"
+        src={instagram}
       />
+      // </picture>
     ),
     title: 'Instagram',
   },
   {
     href: 'https://github.com/Rupert-com',
     //@ts-ignore
-    icon: <object alt="rupert Github" title="rupert Github" data={github} type="image/svg+xml" />,
+    icon: <Img alt="rupert Github" title="rupert Github" src={github} />,
     title: 'Github',
   },
   {
@@ -79,7 +85,7 @@ const items = [
     href: 'https://at.linkedin.com/in/ru4ert',
     icon: (
       //@ts-ignore
-      <object alt="rupert linkedIn" title="rupert linkedIn" data={linkedIn} type="image/svg+xml" />
+      <Img alt="rupert linkedIn" title="rupert linkedIn" src={linkedIn} />
     ),
     title: 'linkedIn',
   },
@@ -92,18 +98,17 @@ const items = [
   {
     href: 'mailto:rupertbogensperger21@gmail.com',
     //@ts-ignore
-    icon: <object alt="rupert Email" title="rupert Email" data={email} type="image/svg+xml" />,
+    icon: <Img alt="rupert Email" title="rupert Email" src={email} />,
     title: 'Email',
   },
   {
     href: 'https://stackoverflow.com/users/11123801/ru4ert',
     icon: (
-      <object
-    //@ts-ignore
+      <Img
+        //@ts-ignore
         alt="rupert Stack-Overflow"
         title="rupert Stack-Overflow"
-        data={stackOverflow}
-        type="image/svg+xml"
+        src={stackOverflow}
       />
     ),
     title: 'Stack-Overflow',

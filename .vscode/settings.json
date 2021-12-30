@@ -4,5 +4,6 @@
     "*/setupTests.ts": true,
     "*/App.test.tsx": true,
     "*/reportWebVitals.ts": true
-  }
+  },
+  "svg.preview.background": "transparent"
 }

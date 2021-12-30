@@ -1,6 +1,9 @@
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const path = require('path')
 
+// TODO copy other files to dist
+
+
 // https://github.com/chrisvfritz/prerender-spa-plugin
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
@@ -9,6 +12,7 @@ module.exports = {
     if (env === 'production') {
       // remove hashes from images because of SEO ranking
       config.module.rules[1].oneOf[1].options.name = 'static/media/[name].[ext]'
+      // config.module.rules[1].oneOf[1].test.push('/\\.svg$/')
       const renderer = new Renderer({
         renderAfterTime: 10000,
       })
