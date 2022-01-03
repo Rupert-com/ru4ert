@@ -16,6 +16,7 @@ typings/
 *.cache
 # production
 /functions/app/build
+/functions/app/dist
 
 # misc
 .DS_Store

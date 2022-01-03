@@ -3,49 +3,64 @@ import * as express from 'express'
 import * as path from 'path'
 import * as isbot from 'isbot'
 import * as cors from 'cors'
-import * as fs from 'fs'
+// import * as fs from 'fs'
 
 const app = express()
 app.use(cors({ origin: true }))
+//req.originalUrl: /Services/
+app.get('*', async (req, res) => {
+  const ID = new Date().getTime()
+  functions.logger.info(`${ID}:Hello: ${req.get('user-agent')}\nreq.originalUrl: ${req.originalUrl}\n`)
 
-app.get('/*', async (req, res) => {
-  if (isbot(req.get('user-agent'))) {
-    const file = location.pathname.split('/').splice(-1)[0]
+  try {
+    if (isbot(req.get('user-agent'))) {
+      // /Skills/index.html
+      //      const file = req.originalUrl.split('/').splice(-1)[0]
 
-    const cPath = [__dirname, '..', 'app']
-
-    if (file === '') {
-      cPath.push('dist')
-      switch (req.query.url) {
-        case '/FullStackDevelopment':
-          cPath.push('FullStackDevelopment')
-          break
-        case '/Refenences':
-          cPath.push('Refenences')
-          break
-        case '/Skills':
-          cPath.push('Skills')
-          break
-        case '/SEO':
-          cPath.push('SEO')
-          break
-        case '/Services':
-          cPath.push('Services')
-          break
+      const cPath = [__dirname, '..', 'app', 'dist']
+      if (req.originalUrl !== '/') {
+        const file = req.originalUrl.split('/')[1]
+        // const [, file] = req.originalUrl.split('/')
+        switch (file) {
+          case 'FullStackDevelopment':
+            cPath.push('FullStackDevelopment')
+            break
+          case 'Refenences':
+            cPath.push('Refenences')
+            break
+          case 'Skills':
+            cPath.push('Skills')
+            break
+          case 'SEO':
+            cPath.push('SEO')
+            break
+          case 'Services':
+            cPath.push('Services')
+            break
+        }
       }
       cPath.push('index.html')
+      // } else {
+      //   cPath.push('build')
+      //   cPath.push(req.originalUrl)
+
+      //   if (!fs.existsSync(path.resolve(...cPath))) {
+      //    // res.sendStatus(404)
+      //     res.sendFile(path.resolve(__dirname, '..', 'app', 'build', '404.html'))
+      //     return
+      //   }
+      // }
+      res.sendFile(path.resolve(...cPath))
+      functions.logger.info(`${ID}: served: ${path.resolve(...cPath)}`)
     } else {
-      cPath.push('build')
-      cPath.push(file)
-      res.sendStatus(fs.existsSync(path.resolve(...cPath)) ? 200 : 404)
+      const indexFile = path.resolve(__dirname, '..', 'app', 'build', 'index.html')
+      functions.logger.info(`${ID}: served: ${indexFile}`)
+      res.sendFile(indexFile)
     }
-
-    res.sendFile(path.resolve(...cPath))
-
-    functions.logger.info(`Hello bot: ${req.get('user-agent')} served: ${path.resolve(...cPath)}`)
-  } else {
-    functions.logger.info(`Hello user: ${req.get('user-agent')} served: index.html`)
-    res.sendFile(path.resolve(__dirname, '..', 'app', 'build', 'index.html'))
+  } catch (error) {
+    functions.logger.error(error)
+    // res.sendStatus(500)
+    res.sendFile(path.resolve(__dirname, '..', 'app', 'build', '500.html'))
   }
 })
 

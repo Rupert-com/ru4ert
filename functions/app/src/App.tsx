@@ -220,15 +220,6 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
               content="Rupert Bogensperger | cross platform app development on mobile devices and enterprise. JavaScript, TypeScript, HTML and CSS are my main techniques to develop for web. Further, I use programming languages like python, C# or Kotlin that targets the JVM, Android, JavaScript and Native."
             />
             <meta property="og:type" content="website" />
-            {document.location.pathname !== '/' && (
-              <>
-                {document.location.href.endsWith('/') ? (
-                  <link rel="canonical" href={`${document.location.href}/`} />
-                ) : (
-                  <link rel="canonical" href={document.location.href.slice(0, -1)} />
-                )}
-              </>
-            )}
           </Helmet>
           <Routes>
             <Route path="/" element={<About />} />

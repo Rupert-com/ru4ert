@@ -170,9 +170,9 @@ const items = [
       <p>
         CTO&nbsp;
         <Link
-          rel="noopener"
           target="_blank"
           title="Sixth Edition"
+          rel="nofollow noopener"
           href="https://thesixthedition.com/"
         >
           @Sixth Edition
@@ -184,8 +184,8 @@ const items = [
     key: 'last attended school',
     val: (
       <Link
-        rel="noopener"
         target="_blank"
+        rel="nofollow noopener"
         title="TGM - Technologisches Gewerbemuseum"
         href="https://www.tgm.ac.at/tagesschule/"
       >
@@ -217,6 +217,14 @@ const items = [
           </>
         ))}
       </Typography>
+    ),
+  },
+  {
+    key: 'View more skills and techniques',
+    val: (
+      <Link rel="follow" title="skills and techniques" href="/Skills">
+        Skills
+      </Link>
     ),
   },
 ]

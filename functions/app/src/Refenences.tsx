@@ -55,7 +55,12 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
         description: `Sixth Edition is a Vienna luxury brand of fashion and leather goods. Its product lines include stylish handbags, ready-to-wear and accessories for unisex.`,
         time: 'since 2021',
         organisation: (
-          <Link title="visit Sixth Edition" href="https://thesixthedition.com/" target="_blank">
+          <Link
+            title="visit Sixth Edition"
+            href="https://thesixthedition.com/"
+            target="_blank"
+            rel="nofollow"
+          >
             Sixth Edition
           </Link>
         ),
@@ -83,7 +88,12 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
         description: `Team ABC is a global venture capital fund for air, land and sea transportation and tourism innovation. Team ABC finds, supports and scales early-stage disruptive technology startups focused on increasing sustainability and digital transformation in travel and logistics. Combining years of senior executive experience in the travel industry with a deep understanding of venture building, the fund's team helps companies solving a clear industry problem reach a global market.`,
         time: '2021',
         organisation: (
-          <Link title="visit TeamABC" href="https://teamabc.ventures/" target="_blank">
+          <Link
+            title="visit TeamABC"
+            href="https://teamabc.ventures/"
+            target="_blank"
+            rel="nofollow"
+          >
             TeamABC
           </Link>
         ),
@@ -113,6 +123,7 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
             title="visit feratel media technologies AG"
             href="https://www.feratel.at/"
             target="_blank"
+            rel="nofollow"
           >
             feratel media technologies AG
           </Link>
@@ -133,6 +144,7 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
             title="visit feratel media technologies AG"
             href="https://www.feratel.at/"
             target="_blank"
+            rel="nofollow"
           >
             feratel media technologies AG
           </Link>

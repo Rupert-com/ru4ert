@@ -31,6 +31,7 @@ export const Links: FunctionComponent<ILinksProps> = props => {
                 <Grid item xs={4} md={1}>
                   <Link
                     href={href}
+                    rel="nofollow"
                     target="_blank"
                     underline="none"
                     title={`Visit Rupert's ${title}`}
