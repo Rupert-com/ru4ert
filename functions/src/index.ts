@@ -9,11 +9,12 @@ const app = express()
 app.use(cors({ origin: true }))
 //req.originalUrl: /Services/
 app.get('*', async (req, res) => {
+  const isBot = isbot(req.get('user-agent'))
   const ID = new Date().getTime()
-  functions.logger.info(`${ID}:Hello: ${req.get('user-agent')}\nreq.originalUrl: ${req.originalUrl}\n`)
+  functions.logger.info(`${ID}:${isBot ? 'bot' : 'user'}: ${req.get('user-agent')}\nreq.originalUrl: ${req.originalUrl}\n`)
 
   try {
-    if (isbot(req.get('user-agent'))) {
+    if (isBot) {
       // /Skills/index.html
       //      const file = req.originalUrl.split('/').splice(-1)[0]
 
@@ -40,16 +41,6 @@ app.get('*', async (req, res) => {
         }
       }
       cPath.push('index.html')
-      // } else {
-      //   cPath.push('build')
-      //   cPath.push(req.originalUrl)
-
-      //   if (!fs.existsSync(path.resolve(...cPath))) {
-      //    // res.sendStatus(404)
-      //     res.sendFile(path.resolve(__dirname, '..', 'app', 'build', '404.html'))
-      //     return
-      //   }
-      // }
       res.sendFile(path.resolve(...cPath))
       functions.logger.info(`${ID}: served: ${path.resolve(...cPath)}`)
     } else {
@@ -59,7 +50,6 @@ app.get('*', async (req, res) => {
     }
   } catch (error) {
     functions.logger.error(error)
-    // res.sendStatus(500)
     res.sendFile(path.resolve(__dirname, '..', 'app', 'build', '500.html'))
   }
 })

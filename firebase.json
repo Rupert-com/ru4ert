@@ -1,10 +1,9 @@
 {
   "hosting": {
-    "public": "./functions/app/build",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "headers": [
       {
-        "source": "/*",
+        "source": "/**",
         "headers": [
           {
             "key": "Cache-Control",
@@ -28,7 +27,7 @@
         "destination": "app/sitemap.xml"
       },
       {
-        "source": "*",
+        "source": "**",
         "function": "index"
       }
     ]
