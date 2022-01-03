@@ -1,7 +1,7 @@
 {
   "name": "ru4ert",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "homepage": "https://ru4ert.com",
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -62,5 +62,4 @@
     "prerender-spa-plugin": "^3.4.0",
     "react-app-rewired": "^2.1.8"
   }
-
 }

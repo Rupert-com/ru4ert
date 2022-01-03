@@ -1,8 +1,7 @@
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const path = require('path')
-
-// TODO copy other files to dist
-
+const fs = require('fs')
+const fse = require('fs-extra')
 
 // https://github.com/chrisvfritz/prerender-spa-plugin
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
@@ -33,6 +32,17 @@ module.exports = {
           // },
           renderer,
         }),
+        {
+          apply: compiler => {
+            compiler.hooks.afterEmit.tap('AfterEmitPlugin', compilation => {
+              console.log('helo world')
+              fse.copySync(path.join(__dirname, 'build'), path.join(__dirname, 'dist'), {
+                overwrite: true,
+                filter: (src, des) => des !== path.join(__dirname, 'dist', 'index.html'),
+              })
+            })
+          },
+        },
       ])
     }
 
