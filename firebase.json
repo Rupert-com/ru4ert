@@ -23,10 +23,6 @@
     ],
     "rewrites": [
       {
-        "source": "/sitemap.xml",
-        "destination": "app/sitemap.xml"
-      },
-      {
         "source": "**",
         "function": "index"
       }
