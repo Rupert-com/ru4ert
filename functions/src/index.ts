@@ -9,16 +9,19 @@ const app = express()
 app.use(cors({ origin: true }))
 //req.originalUrl: /Services/
 
-app.get('*', function (req, res, next) {
-  const ID = new Date().getTime()
-  const info = (msg: unknown) => functions.logger.info(`${ID}:${msg}`)
-  const error = (msg: unknown) => functions.logger.error(`${ID}:${msg}`)
+app.get(
+  '*',
+  function (req, res, next) {
+    const ID = new Date().getTime()
+    const info = (msg: unknown) => functions.logger.info(`${ID}:${msg}`)
+    const error = (msg: unknown) => functions.logger.error(`${ID}:${msg}`)
 
-  try {
-    const isBot = isbot(req.get('user-agent'))
-    info(`:${isBot ? 'bot' : 'user'}: ${req.get('user-agent')}\nreq.originalUrl: ${req.originalUrl}\n`)
+    try {
+      const isBot = isbot(req.get('user-agent'))
+      info(`:${isBot ? 'bot' : 'user'}: ${req.get('user-agent')}\nreq.originalUrl: ${req.originalUrl}\n`)
 
-    if (isBot) {
+      if (!isBot) return next()
+
       const isLastFile = req.originalUrl.split('/').splice(-1, 1)[0].includes('.')
       const amountSubfolders = req.originalUrl.split('/').length - (req.originalUrl.endsWith('/') || isLastFile ? 2 : 1)
       if (amountSubfolders > 1) return next({ status: 404 })
@@ -57,20 +60,13 @@ app.get('*', function (req, res, next) {
 
       res.sendFile(path.resolve(...cPath))
       info(`served: ${path.resolve(...cPath)}`)
-    } else {
-      const indexFile = path.resolve(__dirname, '..', 'app', 'build', 'index.html')
-      info(`served: ${indexFile}`)
-
-      if (!fs.existsSync(indexFile)) return next({ status: 404 })
-      res.sendFile(indexFile)
+    } catch (e) {
+      error(e)
+      return next({ status: 500 })
     }
-  } catch (e) {
-    error(e)
-    return next({ status: 500 })
-  } finally {
-    return next()
-  }
-})
+  },
+  express.static(path.join(__dirname, '..', 'app', 'build'))
+)
 
 app.use(function (err, req, res, next) {
   switch (err.error) {
