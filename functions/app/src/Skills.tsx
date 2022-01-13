@@ -176,7 +176,7 @@ const itemData: IData[] = [
           title="see more to Docker"
           href="https://www.docker.com/"
           target="_blank"
-          rel="nofollow"
+          rel="nofollow noopener noreferrer"
         >
           Docker
         </Link>

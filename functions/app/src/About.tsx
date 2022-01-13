@@ -172,7 +172,7 @@ const items = [
         <Link
           target="_blank"
           title="Sixth Edition"
-          rel="nofollow noopener"
+          rel="nofollow noopener noreferrer"
           href="https://thesixthedition.com/"
         >
           @Sixth Edition
@@ -185,7 +185,7 @@ const items = [
     val: (
       <Link
         target="_blank"
-        rel="nofollow noopener"
+        rel="nofollow noopener noreferrer"
         title="TGM - Technologisches Gewerbemuseum"
         href="https://www.tgm.ac.at/tagesschule/"
       >
