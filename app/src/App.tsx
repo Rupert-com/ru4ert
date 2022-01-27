@@ -26,6 +26,7 @@ import { SEO } from './SEO'
 import { Services } from './Services'
 import { styled } from '@mui/system'
 import { DarkModeComponent } from './DarkModeComponent'
+import { Partners } from './Partners'
 
 const CusMenuItem = styled(MenuItem)(({ theme }) => ({
   root: {
@@ -65,6 +66,7 @@ const pages = [
   { name: 'Skills', path: '/Skills' },
   { name: 'SEO', path: '/SEO' },
   { name: 'Services', path: '/Services' },
+  { name: 'Partners', path: '/Partners' },
 ]
 
 export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ...other }) => {
@@ -228,6 +230,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
             <Route path="/Skills" element={<Skills />} />
             <Route path="/SEO" element={<SEO />} />
             <Route path="/Services" element={<Services />} />
+            <Route path="/Partners" element={<Partners />} />
           </Routes>
         </main>
         <Links />
