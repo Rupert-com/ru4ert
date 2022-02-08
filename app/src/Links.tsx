@@ -97,7 +97,7 @@ const items = [
     title: 'WhatsApp',
   },
   {
-    href: 'mailto:rupertbogensperger21@gmail.com',
+    href: 'mailto:me@ru4ert.com',
     //@ts-ignore
     icon: <Img alt="rupert Email" title="rupert Email" src={email} />,
     title: 'Email',

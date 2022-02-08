@@ -163,12 +163,12 @@ const items = [
     val: <CardMediaCus title="austia" alt="austia" component="img" src={austria} />,
   },
   { key: 'age', val: `${age} years` },
-  { key: 'languages', val: 'german (native), english' },
+  { key: 'languages', val: 'german (native) & english' },
   {
     key: 'current working position',
     val: (
       <p>
-        CTO&nbsp;
+        Head of IT&nbsp;
         <Link
           target="_blank"
           title="Sixth Edition"

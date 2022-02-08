@@ -10,6 +10,12 @@ export const Partners: FunctionComponent<IPartnersProps> = props => {
 
   return (
     <Container>
+<div id='product-component-1644295672587'></div>
+
+    </Container>)
+
+  return (
+    <Container>
       {/* @ts-ignore */}
       <img style={{ margin: 'auto' }} src={src} alt="Sixth Edition Promo" useMap="#image-map" />
 
