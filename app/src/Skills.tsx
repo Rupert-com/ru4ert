@@ -32,7 +32,8 @@ import java, { ReactComponent as Java } from './@static/media/Java.svg'
 import javaScript, { ReactComponent as JavaScript } from './@static/media/javaScript.svg'
 import json, { ReactComponent as Json } from './@static/media/Json.svg'
 import kotlin, { ReactComponent as Kotlin } from './@static/media/kotlin.svg'
-import linkedIn, { ReactComponent as LinkedIn } from './@static/media/linkedIn.svg'
+import shopify from './@static/media/shopify_logo_black.webp'
+import liquid from './@static/media/liquid.jpg'
 import linux, { ReactComponent as Linux } from './@static/media/Linux.svg'
 import mongoDB, { ReactComponent as MongoDB } from './@static/media/mongoDB.svg'
 import mySql, { ReactComponent as MySql } from './@static/media/MySql.svg'
@@ -143,9 +144,14 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
           content="Rupert Bogensperger has serveral quality Skills. He uses TypeScript and JavaScript for webdevelopment, Python and C# for Desktop and Kotlin or Java for Android developing. Further, he uses Linux as operation system for Enterprise."
         />
       </Helmet>
-      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
-        Rupert Bogensperger - Skills and Techniques
-      </Typography>
+      <Container sx={{ my: 10, px: 2, mx: 'auto' }}>
+        <Typography variant="h1">Skills and Techniques</Typography>
+        <Typography>
+          With more than 6 years of experience, I've worked with cutting edge technologies including
+          Javascript, Typescript, HTML, CSS, Python, Shopify and Docker. My skillset also includes
+          Apache, C++, C#, Kotlin and Java. Here you can find more primary skills.
+        </Typography>
+      </Container>
       <Container sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3 }}>
           <MasonryCus columns={colls} spacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -159,6 +165,25 @@ export const Skills: FunctionComponent<ISkillsProps> = props => {
   )
 }
 const itemData: IData[] = [
+  {
+    src: shopify,
+    img: shopify,
+    title: 'Shopify',
+    content: [
+      <Typography>
+        Shopify is a commerce platform that allows anyone to set up an online store and sell their
+        products.
+      </Typography>,
+    ],
+  },
+  {
+    src: liquid,
+    img: liquid,
+    title: 'Liquid',
+    content: [
+      <Typography>Liquid is the language which is used when build a shopify theme.</Typography>,
+    ],
+  },
   {
     src: docker,
     img: Docker,

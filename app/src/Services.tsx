@@ -23,29 +23,33 @@ export const Services: FunctionComponent<IServicesProps> = props => {
           content="Rupert Bogensperger is a Full Stack Developer. He develops Backend and Frontend Applications."
         />
       </Helmet>
-      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
+      <Typography variant="h1" sx={{ my: 10, px: 2, mx: "auto" }}>
         Rupert Bogensperger - Services
       </Typography>
+
       <Container sx={{ mb: 1 }}>
-        <Paper elevation={12} sx={{ p: 3 }}>
-          {[
-            { headline: '3D - Printing' },
-            {
-              headline: 'Webside developing',
-              info: 'I am developing Full Stack Applications the native way.',
-            },
-            { headline: 'IT Consulting' },
-          ].map(({ headline, info }) => (
-            <article>
-              <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
-                <Typography variant="h2" gutterBottom>
-                  {headline}
-                </Typography>
-                {info && <Typography>{info}</Typography>}
-              </Paper>
-            </article>
-          ))}
-        </Paper>
+        Work in progress
+        {false && (
+          <Paper elevation={12} sx={{ p: 3 }}>
+            {[
+              { headline: '3D - Printing' },
+              {
+                headline: 'Webside developing',
+                info: 'I am developing Full Stack Applications the native way.',
+              },
+              { headline: 'IT Consulting' },
+            ].map(({ headline, info }) => (
+              <article>
+                <Paper variant="outlined" sx={{ p: 3, mb: 3 }}>
+                  <Typography variant="h2" gutterBottom>
+                    {headline}
+                  </Typography>
+                  {info && <Typography>{info}</Typography>}
+                </Paper>
+              </article>
+            ))}
+          </Paper>
+        )}
       </Container>
     </>
   )

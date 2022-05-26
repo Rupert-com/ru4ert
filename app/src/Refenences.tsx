@@ -174,9 +174,15 @@ export const Refenences: FunctionComponent<IRefenencesProps> = props => {
           content="Rupert Bogensperger worked for feratel media AG, TeamABC and for Sixth Edition. Further, he had an startup. ⭐"
         />
       </Helmet>
-      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
-        Rupert Bogensperger - Refenences
-      </Typography>
+      <Container sx={{ my: 10, px: 2, mx: "auto" }}>
+        <Typography variant="h1">Refenences</Typography>
+        <Typography>
+          I was responsible for all types of UI/UX design and front-end development, along with
+          managing projects, planning sprints and coordinating sprints with other departments. I
+          worked on six different websites throughout my career, each with a unique look and feel
+          yet still tied together by their brand identity.
+        </Typography>
+      </Container>
       <Container sx={{ mb: 1 }} id="Refenences">
         <Card elevation={18} variant="elevation" sx={{ p: 3 }}>
           {items.map(({ action, description, name, organisation, status, time, tasks, img }) => (

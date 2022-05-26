@@ -69,26 +69,26 @@ export const About: FunctionComponent<IAboutProps> = props => {
   return (
     <>
       <Helmet>
-        <title>About</title>
+        <title>Person</title>
         <meta
           name="description"
-          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full-Stack-Developer. Currently he is working for Sixth Edition.`}
+          content={`Rupert Bogensperger (m/${age}) originated in Austia does Full-Stack development. Rupert is a young, pasioned man willing to scale to the next level. Currently he works for Sixth Edition.`}
         />
-        <meta property="og:title" content="Rupert Bogensperger - About" />
+        <meta property="og:title" content="Rupert Bogensperger - Person" />
         <meta property="og:image" content="https://ru4ert.com/rupert_neu.jpg" />
         <meta
           property="og:description"
-          content={`Rupert Bogensperger (m/${age}) originated in Austia is a Full-Stack-Developer. Currently he is working for Sixth Edition.`}
+          content={`Rupert Bogensperger (m/${age}) originated in Austia does Full-Stack development. Rupert is a young, pasioned man willing to scale to the next level. Currently he works for Sixth Edition.`}
         />
       </Helmet>
       <Typography variant="h1" sx={{ my: 10, px: 2 }}>
-        Rupert Bogensperger - About
+        Rupert Bogensperger
       </Typography>
       <Container id="About" sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3 }}>
           <section>
             <Typography align="center" variant="h2" gutterBottom>
-              Rupert Bogensperger
+              Person
             </Typography>
             <Grid container>
               <Grid item xs={12} sx={{ pb: 2, textAlign: 'center' }}>
@@ -108,6 +108,28 @@ export const About: FunctionComponent<IAboutProps> = props => {
               </Grid>
               <Grid item xs={12}>
                 <Grid container spacing={1.5} sx={{ mb: 5 }}>
+                  <Grid item xs={12} mx={8} borderBottom={'1px solid black'}>
+                    <Typography align="justify">
+                      Hey there! I'm Rupert Bogensperger, and I'm a full-stack developer. I was born
+                      in Salzburg, Austria{' '}
+                      <Link
+                        target="_blank"
+                        title="St.Michael/Lungau"
+                        rel="nofollow noopener noreferrer"
+                        href="https://www.google.com/maps/place/5582+Sankt+Michael+im+Lungau/data=!4m2!3m1!1s0x4770db59fe6dfc6b:0xb6f0bc3eabbc6baf?sa=X&ved=2ahUKEwiFu5mJn-v3AhXMT8AKHR3gCBYQ8gF6BAhnEAE"
+                      >
+                       (St.Michael/Lungau)
+                      </Link>{' '}
+                      , where I also completed my secondary education. Back then, I was pretty
+                      active in snowboarding and judo competitions—and I'm still pretty active
+                      today! I'm a big fan of chess, 3D printing, riding my bike around town and
+                      playing with my cats. I've been working as a developer for over three years
+                      now — the last two years in Vienna. I started out as a front-end developer but
+                      quickly moved into full-stack development because it's what I love most about
+                      coding: being able to work on different parts of the process from start to
+                      finish.
+                    </Typography>
+                  </Grid>
                   {items.map(({ key, val }) => (
                     <>
                       <Grid item xs={12} sm={6}>
@@ -210,6 +232,7 @@ const items = [
           'PHP',
           'Python',
           'Typescript',
+          'Liquid',
           'VBA',
         ].map((it, index) => (
           <>

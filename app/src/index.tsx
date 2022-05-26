@@ -7,7 +7,6 @@ import { Styling } from './Styling'
 const rootElement = document.getElementById('root')
 
 if (rootElement != null && rootElement.hasChildNodes()) {
-  console.log('hydrate')
   hydrate(
     <React.StrictMode>
       <Styling />
@@ -15,7 +14,6 @@ if (rootElement != null && rootElement.hasChildNodes()) {
     rootElement
   )
 } else {
-  console.log('render')
   render(
     <React.StrictMode>
       <Styling />

@@ -21,9 +21,16 @@ export const SEO: FunctionComponent<ISEOProps> = props => {
           content="Rupert Bogensperger is a Full-Stack-Developer. He develops Backend and Frontend Applications."
         />
       </Helmet>
-      <Typography variant="h1" sx={{ my: 10, px: 2 }}>
-        Rupert Bogensperger - Search-Engine-Optimization
-      </Typography>
+      <Container sx={{ my: 10, px: 2, mx: "auto" }}>
+        <Typography variant="h1">Search-Engine-Optimization</Typography>
+        <Typography>
+          Search-Engine-Optimization is an important aspect of your website's success. Search Engine
+          Optimization (SEO) helps improve a site's ranking in SERPs through organic search results.
+          By improving your website's ranking in search results and boosting web traffic, business
+          owners are able to draw new customers to their sites, increasing brand awareness and sales
+          opportunities while saving money on advertising campaigns.
+        </Typography>
+      </Container>
       <Container sx={{ mb: 1 }}>
         <Paper elevation={12} sx={{ p: 3, mb: 3 }}>
           <article>
