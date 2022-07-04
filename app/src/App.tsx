@@ -1,18 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Menu,
-  MenuItem,
-  Slide,
-  Link as MLink,
-  Toolbar,
-  Typography,
-  useScrollTrigger,
-  Avatar,
-} from '@mui/material'
+import { AppBar, Box, Button, Container, IconButton, Menu, MenuItem, Slide, Link as MLink, Toolbar, Typography, useScrollTrigger, Avatar } from '@mui/material'
 import React, { FunctionComponent, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 
@@ -28,6 +14,7 @@ import { Services } from './Services'
 import { styled } from '@mui/system'
 import { DarkModeComponent } from './DarkModeComponent'
 import { Gravatar } from './util/Gravatar'
+import { Certifications } from './Certifications'
 
 const CusMenuItem = styled(MenuItem)(({ theme }) => ({
   root: {
@@ -63,10 +50,11 @@ type INavState = {}
 
 const pages = [
   { name: 'Full-Stack-Development', path: '/FullStackDevelopment' },
+  { name: 'Certifications & Documents', path: '/Certifications' },
   { name: 'Refenences', path: '/Refenences' },
   { name: 'Skills', path: '/Skills' },
-  { name: 'SEO', path: '/SEO' },
-  { name: 'Services', path: '/Services' },
+  // { name: 'SEO', path: '/SEO' },
+  // { name: 'Services', path: '/Services' },
 ]
 
 export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ...other }) => {
@@ -110,14 +98,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
                   </Button>
                 </Box>
                 <Box sx={{ display: { xs: 'flex', lg: 'none' } }}>
-                  <IconButton
-                    size="large"
-                    aria-label="account of current user"
-                    aria-controls="menu-appbar"
-                    aria-haspopup="true"
-                    onClick={handleOpenNavMenu}
-                    color="inherit"
-                  >
+                  <IconButton size="large" aria-label="account of current user" aria-controls="menu-appbar" aria-haspopup="true" onClick={handleOpenNavMenu} color="inherit">
                     <MenuIcon />
                   </IconButton>
                   <Menu
@@ -139,11 +120,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
                     }}
                   >
                     {pages.map(({ name, path }) => (
-                      <CusMenuItem
-                        selected={window.location.pathname === path}
-                        key={path}
-                        onClick={handleCloseNavMenu}
-                      >
+                      <CusMenuItem selected={window.location.pathname === path} key={path} onClick={handleCloseNavMenu}>
                         <Link target="_self" to={path} title={name}>
                           <Typography textAlign="center">{name}</Typography>
                         </Link>
@@ -204,16 +181,13 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
         </HideOnScroll>
         <Toolbar />
         <main>
-          <Helmet
-            titleTemplate="%s - Rupert Bogensperger | Full-Stack Development"
-            defaultTitle="Rupert Bogensperger | Full-Stack Development"
-          >
+          <Helmet titleTemplate="%s - Rupert Bogensperger | Full-Stack Development" defaultTitle="Rupert Bogensperger | Full-Stack Development">
             <meta
               name="description"
               content="Rupert Bogensperger | cross platform app development on mobile devices and enterprise. JavaScript, TypeScript, HTML and CSS are my main techniques to develop for web. Further, I use programming languages like python, C# or Kotlin that targets the JVM, Android, JavaScript and Native."
             />
             <meta property="og:url" content={window.location.href} />
-            <meta property="og:image" content="https://ru4ert.com/maskable_icon_x512.png" />
+            <meta property="og:image" content="https://www.gravatar.com/avatar/a98495ef27eacd246572b931ac8dd6dc?s=512&d=mp&r=g" />
             <meta property="og:title" content="Rupert Bogensperger | Full-Stack Development" />
             <meta
               property="og:description"
@@ -228,6 +202,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
             <Route path="/Skills" element={<Skills />} />
             <Route path="/SEO" element={<SEO />} />
             <Route path="/Services" element={<Services />} />
+            <Route path="/Certifications" element={<Certifications />} />
           </Routes>
         </main>
         <Links />

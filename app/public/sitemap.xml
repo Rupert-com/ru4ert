@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
   <loc>https://ru4ert.com/</loc>
-  <lastmod>2022-05-22T10:30:00+00:00</lastmod>
+  <lastmod>2022-07-04T10:30:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1</priority>
    </url>
    <url>
   <loc>https://ru4ert.com/Refenences</loc>
-  <lastmod>2022-05-22T10:30:00+00:00</lastmod>
+  <lastmod>2022-07-04T10:30:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
    <url>
   <loc>https://ru4ert.com/Skills</loc>
-  <lastmod>2022-05-22T10:30:00+00:00</lastmod>
+  <lastmod>2022-07-04T10:30:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
-   <url>
+   <!-- <url>
   <loc>https://ru4ert.com/Services</loc>
   <lastmod>2022-05-22T10:30:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
@@ -30,9 +30,15 @@
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>
-   <url>
+   <url> -->
   <loc>https://ru4ert.com/FullStackDevelopment</loc>
   <lastmod>2022-05-22T10:30:00+00:00</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   <url>
+  <loc>https://ru4ert.com/Certifications</loc>
+  <lastmod>2022-07-04T10:30:00+00:00</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.5</priority>
    </url>

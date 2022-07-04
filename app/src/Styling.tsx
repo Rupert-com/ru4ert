@@ -81,7 +81,7 @@ export const Styling: FunctionComponent = props => {
               style: {
                 textAlign: 'center',
                 fontWeight: '200',
-                paddingBottom: "2rem",
+                paddingBottom: '2rem',
                 [theme.breakpoints.up('sm')]: {
                   fontSize: '3rem',
                 },
@@ -90,7 +90,7 @@ export const Styling: FunctionComponent = props => {
             {
               props: { variant: 'h2' },
               style: {
-                paddingBottom: "1.7rem",
+                paddingBottom: '1.7rem',
                 [theme.breakpoints.up('sm')]: {
                   fontSize: '2.5rem',
                 },
@@ -99,7 +99,7 @@ export const Styling: FunctionComponent = props => {
             {
               props: { variant: 'h3' },
               style: {
-                paddingBottom: "1.5rem",
+                paddingBottom: '1.5rem',
                 [theme.breakpoints.up('sm')]: {
                   fontSize: '2rem',
                 },
@@ -123,6 +123,12 @@ export const Styling: FunctionComponent = props => {
         },
         'a:visited': {
           color: theme.palette.primary.main,
+        },
+        'a:link': {
+          color: theme.palette.primary.main,
+        },
+        u: {
+          textDecoration: 'underline',
         },
       }}
     />
