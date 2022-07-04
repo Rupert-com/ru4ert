@@ -4,7 +4,7 @@
   "endOfLine": "crlf",
   "jsxBracketSameLine": false,
   "jsxSingleQuote": false,
-  "printWidth": 100,
+  "printWidth": 280,
   "tabWidth": 2,
   "proseWrap": "always",
   "quoteProps": "as-needed",

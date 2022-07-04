@@ -11,6 +11,7 @@ import {
   Toolbar,
   Typography,
   useScrollTrigger,
+  Avatar,
 } from '@mui/material'
 import React, { FunctionComponent, useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
@@ -26,6 +27,7 @@ import { SEO } from './SEO'
 import { Services } from './Services'
 import { styled } from '@mui/system'
 import { DarkModeComponent } from './DarkModeComponent'
+import { Gravatar } from './util/Gravatar'
 
 const CusMenuItem = styled(MenuItem)(({ theme }) => ({
   root: {
@@ -93,6 +95,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
                   }}
                 >
                   <Button href="/" title="Rupert Bogensperger" target="_self">
+                    <Avatar src={Gravatar('me@ru4ert.com')} />
                     <Typography
                       variant="h6"
                       component="div"
@@ -211,10 +214,7 @@ export const App: FunctionComponent<INavProps> = ({ darkmode, updateDarkmode, ..
             />
             <meta property="og:url" content={window.location.href} />
             <meta property="og:image" content="https://ru4ert.com/maskable_icon_x512.png" />
-            <meta
-              property="og:title"
-              content="Rupert Bogensperger | Full-Stack Development"
-            />
+            <meta property="og:title" content="Rupert Bogensperger | Full-Stack Development" />
             <meta
               property="og:description"
               content="Rupert Bogensperger | cross platform app development on mobile devices and enterprise. JavaScript, TypeScript, HTML and CSS are my main techniques to develop for web. Further, I use programming languages like python, C# or Kotlin that targets the JVM, Android, JavaScript and Native."
