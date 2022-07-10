@@ -30,13 +30,48 @@ type ICertificationProps = {
 
 const cCertifications: ICertificationProps[] = [
   {
+    issued: moment('2022-07-10').toDate(),
+    issuer: 'Coursera',
+    name: 'Scrum Master Certification Specialization (CRM)',
+    url: 'https://www.coursera.org/account/accomplishments/specialization/certificate/BZDG2N52953M',
+    description: `In this specialization, you'll learn about managing tasks and events
+    within a Sprint, Scrum terminology and roles, Scrum reporting, and
+    managing risks. We'll discuss Story Points and User Stories, scaling
+    Scrum, Continuous Integration, test-Driven Development (TDD), and
+    Behavior Driven Development (BDD).`,
+  },
+  {
+    issued: moment('2022-07-09').toDate(),
+    issuer: 'Coursera',
+    name: 'Combining Scrum with Other Agile Methodologies',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/HFWJC54JPDGT',
+  },
+  {
+    issued: moment('2022-07-09').toDate(),
+    issuer: 'Coursera',
+    name: 'Scrum Master Certification: Scaling Agile and the Team-of-Teams',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/VUQTCVVLCK3C',
+  },
+  {
+    issued: moment('2022-07-10').toDate(),
+    issuer: 'Coursera',
+    name: 'Scrum Master Certification: Scrum Methodologies',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/BVS97GHJYRY7',
+  },
+  {
+    issued: moment('2022-07-10').toDate(),
+    issuer: 'Coursera',
+    name: 'Introduction to Scrum Master Training',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/XATXNU4XS5U6',
+  },
+
+  {
     issued: moment('2022-02-14').toDate(),
     issuer: 'Microsoft',
     name: 'Microsoft Certified: Azure Fundamentals',
     url: 'https://www.credly.com/badges/5d22e929-bd28-49b4-86c3-9fa0a8f9cf89/public_url',
     description: 'Earners of the Azure Fundamentals certification have demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.',
   },
-
   {
     issued: moment('2021-05-02').toDate(),
     issuer: 'freeCodeCamp',
@@ -44,7 +79,6 @@ const cCertifications: ICertificationProps[] = [
     url: 'https://www.freecodecamp.org/certification/rupiert/responsive-web-design',
     description: 'Earners of the Responsive Web Design certification have demonstrated to build webpages with HTML and CSS.',
   },
-
   {
     issued: moment('2021-05-31').toDate(),
     issuer: 'mimo',
@@ -52,7 +86,6 @@ const cCertifications: ICertificationProps[] = [
     url: '/Rupert_Bogensperger_mimo-certificates-50-1.pdf',
     description: 'Understanding of the core concepts of programming using JavaScript and HTML to create web pages and to style pages using CSS',
   },
-
   {
     issued: moment('2022-05-31').toDate(),
     issuer: 'HTBLuVA Wien XX/ TGM',
