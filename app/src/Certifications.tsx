@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { styled } from '@mui/system'
 import moment from 'moment'
-import React, { FunctionComponent, useState } from 'react'
+import React, { FunctionComponent, ReactNode, useState } from 'react'
 import { Helmet } from 'react-helmet'
 
 const CusAccordionSummary = styled(AccordionSummary)(({ theme }) => ({
@@ -26,6 +26,7 @@ type ICertificationProps = {
   description?: string
   issuer: string
   url: string
+  children?: ReactNode
 }
 
 const cCertifications: ICertificationProps[] = [
@@ -41,33 +42,50 @@ const cCertifications: ICertificationProps[] = [
     Behavior Driven Development (BDD).`,
   },
   {
+    issued: moment('2022-07-10').toDate(),
+    issuer: 'Coursera - Meta',
+    name: 'Introduction to Front-End Development',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/8NU6PQG7RLZD',
+  },
+  {
+    issued: moment('2022-07-10').toDate(),
+    issuer: 'Coursera - Meta',
+    name: 'Programming with JavaScript',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/89ZNFPS84PZN',
+  },
+  {
     issued: moment('2022-07-09').toDate(),
-    issuer: 'Coursera',
+    issuer: 'Coursera - Meta',
+    name: 'Version Control',
+    url: 'https://www.coursera.org/account/accomplishments/certificate/CHT4MNEDLGMV',
+  },
+  {
+    issued: moment('2022-07-09').toDate(),
+    issuer: 'Coursera - LearnQuest',
     name: 'Combining Scrum with Other Agile Methodologies',
     url: 'https://www.coursera.org/account/accomplishments/certificate/HFWJC54JPDGT',
   },
   {
     issued: moment('2022-07-09').toDate(),
-    issuer: 'Coursera',
+    issuer: 'Coursera - LearnQuest',
     name: 'Scrum Master Certification: Scaling Agile and the Team-of-Teams',
     url: 'https://www.coursera.org/account/accomplishments/certificate/VUQTCVVLCK3C',
   },
   {
     issued: moment('2022-07-10').toDate(),
-    issuer: 'Coursera',
+    issuer: 'Coursera - LearnQuest',
     name: 'Scrum Master Certification: Scrum Methodologies',
     url: 'https://www.coursera.org/account/accomplishments/certificate/BVS97GHJYRY7',
   },
   {
     issued: moment('2022-07-10').toDate(),
-    issuer: 'Coursera',
+    issuer: 'Coursera - LearnQuest',
     name: 'Introduction to Scrum Master Training',
     url: 'https://www.coursera.org/account/accomplishments/certificate/XATXNU4XS5U6',
   },
-
   {
     issued: moment('2022-02-14').toDate(),
-    issuer: 'Microsoft',
+    issuer: 'Microsoft - ',
     name: 'Microsoft Certified: Azure Fundamentals',
     url: 'https://www.credly.com/badges/5d22e929-bd28-49b4-86c3-9fa0a8f9cf89/public_url',
     description: 'Earners of the Azure Fundamentals certification have demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.',
@@ -155,15 +173,16 @@ const Certification: FunctionComponent<ICertificationProps & { index: number; on
           </>
         )}
       </CusAccordionSummary>
-      <AccordionDetails>
-        {description &&
-          description.split('\n').map(it => (
+      {description && (
+        <AccordionDetails>
+          {description.split('\n').map(it => (
             <Typography>
               {description.indexOf('\n') !== -1 && <>• </>}
               {it}
             </Typography>
           ))}
-      </AccordionDetails>
+        </AccordionDetails>
+      )}
       <AccordionActions>
         <IconButton aria-label="url" href={url} target="_blank" rel="nofollow">
           {isFile ? <AttachFileIcon /> : <LinkIcon />}

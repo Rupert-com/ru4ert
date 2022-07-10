@@ -74,7 +74,6 @@ type IDarkModeComponentProps = {
 
 export const DarkModeComponent: FunctionComponent<IDarkModeComponentProps> = ({
   updateDarkmode,
-  children,
   darkmode,
 }) => (
   <CusFormControlLabel

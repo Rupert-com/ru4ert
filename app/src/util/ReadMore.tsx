@@ -6,6 +6,7 @@ export const FILE = __filename
 type IReadMoreProps = {
   pre?: ReactNode | undefined
   more?: boolean
+  children: ReactNode
 }
 type IReadMoreState = {
   more: boolean
