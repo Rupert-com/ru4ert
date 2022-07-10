@@ -165,7 +165,7 @@ const items = [
     key: 'programming languages I tested',
     val: (
       <Typography noWrap>
-        {['Assembler', 'Bash', 'C#', 'C++', 'CSS', 'HTML', 'Java', 'JavaScript', 'Kotlin', 'PHP', 'Python', 'Typescript', 'Liquid', 'VBA'].map((it, index) => (
+        {['Assembler', 'Bash', 'C#', 'C++', 'CSS', 'HTML', 'Java', 'JavaScript', 'Kotlin', 'Dart', 'PHP', 'Python', 'Typescript', 'Liquid', 'VBA'].map((it, index) => (
           <>
             <strong>{it}</strong>,{index % 9 === 0 ? <br /> : ' '}
           </>
@@ -178,6 +178,14 @@ const items = [
     val: (
       <Link rel="follow" title="skills and techniques" href="/Skills">
         Skills
+      </Link>
+    ),
+  },
+  {
+    key: 'Current CV/Resume',
+    val: (
+      <Link rel="follow" title="skills and techniques" href="/Rupert_Bogensperger_CV.pdf">
+        Rupert_Bogensperger_CV.pdf
       </Link>
     ),
   },
