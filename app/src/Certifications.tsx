@@ -85,7 +85,7 @@ const cCertifications: ICertificationProps[] = [
   },
   {
     issued: moment('2022-02-14').toDate(),
-    issuer: 'Microsoft - ',
+    issuer: 'Microsoft',
     name: 'Microsoft Certified: Azure Fundamentals',
     url: 'https://www.credly.com/badges/5d22e929-bd28-49b4-86c3-9fa0a8f9cf89/public_url',
     description: 'Earners of the Azure Fundamentals certification have demonstrated foundational level knowledge of cloud services and how those services are provided with Microsoft Azure.',
@@ -184,8 +184,8 @@ const Certification: FunctionComponent<ICertificationProps & { index: number; on
         </AccordionDetails>
       )}
       <AccordionActions>
-        <IconButton aria-label="url" href={url} target="_blank" rel="nofollow">
-          {isFile ? <AttachFileIcon /> : <LinkIcon />}
+        <IconButton size="large" aria-label="url" href={url} target="_blank" rel="nofollow">
+          {isFile ? <AttachFileIcon fontSize="inherit" /> : <LinkIcon fontSize="inherit" />}
         </IconButton>
       </AccordionActions>
     </Accordion>
